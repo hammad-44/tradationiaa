@@ -83,3 +83,5 @@ def cart(request):
 
 def wishlist(request):
     return HttpResponse("HEllo World")
+
+
