@@ -1,0 +1,499 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>{% block title %}{% endblock title %} -Tradationiaa</title>
+  <link rel="icon" href="{% static 'img/logo.png' %}" type="image/x-icon" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+  <link rel="stylesheet" href="{% static 'css/mdb.min.css' %} " />
+  <style>
+    {
+      % block mycss %
+    }
+
+      {
+      % endblock mycss%
+    }
+
+    .cart-container {
+      position: fixed;
+      top: 0;
+      right: -350px;
+      /* Initially off-screen */
+      height: 100%;
+      width: 350px;
+      background-color: #f1f1f1;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      transition: right 0.3s ease-out;
+    }
+
+    .cart-container.show {
+      right: 0;
+    }
+
+    .navbar-nav a {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .navbar-nav a::before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #007bff;
+      /* Change the color to your desired underline color */
+      bottom: 0;
+      left: 0;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: width 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    }
+
+    .navbar-nav a:hover::before {
+      width: 100%;
+      visibility: visible;
+      transform: scaleX(1);
+    }
+
+    .navbar-nav {
+      position: relative;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-item:hover .nav-hover-box {
+      display: block;
+    }
+
+    .nav-hover-box {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      z-index: 1000;
+    }
+
+    .nav-hover-box a {
+      display: block;
+      padding: 5px 0;
+      color: #000;
+      /* Change the text color as needed */
+      text-decoration: none;
+    }
+  </style>
+
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+    <div class="container-fluid">
+      <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <a class="navbar-brand mt-2 mt-lg-0 mx-auto mx-lg-0" href="/">
+          <img src="{% static 'img/logo.png' %}" height="45" alt="Tradationiaa" loading="lazy" />
+      </a>
+      
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">NEW</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">KURTAS</a>
+            <div class="nav-hover-box dynamic-width" id="newHoverBox">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4">
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">SUITS</a>
+            <div class="nav-hover-box dynamic-width" id="newHoverBox">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4">
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">SAREES</a>
+            <div class="nav-hover-box dynamic-width" id="newHoverBox">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4">
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">DRESSES</a>
+            <div class="nav-hover-box dynamic-width" id="newHoverBox">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4">
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">BOTTOMS</a>
+            <div class="nav-hover-box dynamic-width" id="newHoverBox">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4">
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">EXTRA LOVE</a>
+            <div class="nav-hover-box dynamic-width" id="newHoverBox">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4">
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">LEHENGAS</a>
+            <div class="nav-hover-box dynamic-width" id="newHoverBox">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4">
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">LOUNGEWEAR</a>
+            <div class="nav-hover-box dynamic-width" id="newHoverBox">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-4">
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                    <a href="#">Category</a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                    <a href="#">Subcategory</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">SALE</a>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="d-flex align-items-center" onclick="toggleCartContainer()">
+        <a class="text-reset me-3" href="#">
+          <i class="fas fa-shopping-cart"></i>
+        </a>
+        {% if user.is_authenticated %}
+        <div class="dropdown">
+          <a class="text-reset me-3 hidden-arrow" href="/logouthandle" id="navbarDropdownMenuLink" role="button"
+            aria-expanded="false">Logout
+          </a>
+        </div>
+        {% else %}
+        <div class="dropdown">
+          <a class="d-flex align-items-center hidden-arrow" href="/handlelogin" id="navbarDropdownMenuAvatar"
+            role="button" aria-expanded="false">
+            <img src="{% static 'img/avt.png' %}" class="rounded-circle" height="25"
+              alt="Black and White Portrait of a Man" loading="lazy" />
+          </a>
+        </div>
+        {% endif %}
+
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="cart-container" id="cartContainer">
+    <p>This is the cart container. You can add your content here.</p>
+    <button onclick="closeCartContainer()">Close</button>
+  </div>
+
+
+  {% block body %}{% endblock body %}
+
+  <footer class="text-center text-lg-start bg-body-tertiary text-muted">
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <div class="row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Customer Care
+            </h6>
+            <p>
+              Write To Us at <a href="mailto:ujalaarslan2021@icloud.com">ujalaarslan2021@icloud.com</a>
+            </p>
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>DISCOVER
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">New Arrivals</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Sale</a>
+            </p>
+          </div>
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-1"></i>CLIENT EXPERIENCE
+            </h6>
+            <p>
+              <a href="/privacy-policy" class="text-reset">Privacy Policy</a>
+            </p>
+            <p>
+              <a href="/our-policy" class="text-reset">Our Policy</a>
+            </p>
+            <p>
+              <a href="/shipping-policy" class="text-reset">Shipping Policy</a>
+            </p>
+            <p>
+              <a href="/refund-policy" class="text-reset">Refund Policy</a>
+            </p>
+            <p>
+              <a href="/terms-conditions" class="text-reset">Terms & Conditions</a>
+            </p>
+            <p>
+              <a href="/contact" class="text-reset">Contact Us</a>
+            </p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-1"></i>EXPLORE MORE
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Sarees</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Kurtas</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Suits</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Dresses</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Kids</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Bottoms</a>
+            </p>
+          </div>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-1"></i>EXPLORE MORE
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Extra Love</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Lehengas</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Loungewear</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">New</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Sale</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Tradationiaa Art</a>
+            </p>
+          </div>
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Contact
+            </h6>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-google"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="" class="me-4 text-reset">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Tradationiaa.com</a>
+    </div>
+  </footer>
+
+
+
+  <script type="text/javascript" src="{% static 'js/mdb.umd.min.js' %}"></script>
+
+  <script type="text/javascript">
+    function toggleCartContainer() {
+      var cartContainer = document.getElementById('cartContainer');
+      cartContainer.classList.toggle('show');
+    }
+
+    function closeCartContainer() {
+      var cartContainer = document.getElementById('cartContainer');
+      cartContainer.classList.remove('show');
+    }
+    // Calculate and set the width of the hover container dynamically
+    window.addEventListener('DOMContentLoaded', function () {
+      var dynamicWidthBoxes = document.querySelectorAll('.dynamic-width');
+
+      dynamicWidthBoxes.forEach(function (box) {
+          var categoriesCount = box.querySelectorAll('.col-md-4').length;
+          var containerWidth = categoriesCount * 185; // Adjust the width factor as needed
+          box.style.width = containerWidth + 'px';
+      });
+  });
+  </script>
+
+
+</body>
+
+</html>
