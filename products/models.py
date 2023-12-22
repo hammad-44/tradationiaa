@@ -17,6 +17,20 @@ class Subcategory(models.Model):
     def __str__(self):
         return self.name
 
+# models.py
+
+class Size(models.Model):
+    name = models.CharField(max_length=10)
+
+    def __str__(self):
+        return self.name
+
+class Color(models.Model):
+    name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
+
 class ClothProduct(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
@@ -27,6 +41,8 @@ class ClothProduct(models.Model):
     is_new = models.BooleanField(default=False)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
     subcategory = models.ForeignKey(Subcategory, on_delete=models.SET_NULL, null=True, blank=True)
+    sizes = models.ManyToManyField(Size)
+    colors = models.ManyToManyField(Color)
 
     def __str__(self):
         return self.name
