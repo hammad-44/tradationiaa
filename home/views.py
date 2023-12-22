@@ -78,10 +78,5 @@ def signup(request):
     else:
         return render(request, 'home/signup.html')
 
-def cart(request):
-    return HttpResponse("HEllo cart")
-
-def wishlist(request):
-    return HttpResponse("HEllo World")
 
 

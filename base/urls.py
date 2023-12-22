@@ -25,5 +25,5 @@ admin.site.index_title="Welcome to Tradationiaa Admin Panel"
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('home.urls')),
-    path('products', include("products.urls"))
+    path('products/', include("products.urls"))
 ]

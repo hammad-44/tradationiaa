@@ -8,7 +8,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge" />
   <title>{% block title %}{% endblock title %} -Tradationiaa</title>
   <link rel="icon" href="{% static 'img/logo.png' %}" type="image/x-icon" />
-
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <link rel="stylesheet" href="{% static 'css/mdb.min.css' %} " />
@@ -21,23 +21,6 @@
       % endblock mycss%
     }
 
-    .cart-container {
-      position: fixed;
-      top: 0;
-      right: -350px;
-      /* Initially off-screen */
-      height: 100%;
-      width: 350px;
-      background-color: #f1f1f1;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      z-index: 100;
-      transition: right 0.3s ease-out;
-    }
-
-    .cart-container.show {
-      right: 0;
-    }
 
     .navbar-nav a {
       position: relative;
@@ -75,6 +58,123 @@
     .nav-item:hover .nav-hover-box {
       display: block;
     }
+    .qty .count {
+      color: #000;
+      display: inline-block;
+      vertical-align: top;
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 30px;
+      padding: 0 2px
+      ;min-width: 35px;
+      text-align: center;
+  }
+  .qty .plus {
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: top;
+      color: white;
+      width: 30px;
+      height: 30px;
+      font: 30px/1 Arial,sans-serif;
+      text-align: center;
+      border-radius: 50%;
+      }
+  .qty .minus {
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: top;
+      color: white;
+      width: 30px;
+      height: 30px;
+      font: 30px/1 Arial,sans-serif;
+      text-align: center;
+      border-radius: 50%;
+      background-clip: padding-box;
+  }
+  div {
+      text-align: center;
+  }
+  .minus:hover{
+      background-color: #717fe0 !important;
+  }
+  .plus:hover{
+      background-color: #717fe0 !important;
+  }
+  /*Prevent text selection*/
+  span{
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+  }
+  input{  
+      border: 0;
+      width: 2%;
+  }
+  nput::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+  input:disabled{
+      background-color:white;
+  }
+  /* Carousel styling */
+  #introCarousel,
+  .carousel-inner,
+  .carousel-item,
+  .carousel-item.active {
+    height: 100vh;
+  }
+
+  .carousel-item:nth-child(1) {
+    background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  .carousel-item:nth-child(2) {
+    background-image: url('https://mdbootstrap.com/img/Photos/Others/images/77.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  .carousel-item:nth-child(3) {
+    background-image: url('https://mdbootstrap.com/img/Photos/Others/images/78.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+  .float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+    background-color:#25d366;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index:100;
+  }
+  
+  .my-float{
+    margin-top:16px;
+  }
+  /* Height for devices larger than 576px */
+  @media (min-width: 992px) {
+    #introCarousel {
+      margin-top: -58.59px;
+    }
+    #introCarousel,
+    .carousel-inner,
+    .carousel-item,
+    .carousel-item.active {
+      height: 50vh;
+    }
+  }
 
     .nav-hover-box {
       display: none;
@@ -328,7 +428,7 @@
       </div>
 
       <div class="d-flex align-items-center" >
-        <a class="text-reset me-3 cursor-pointer" href="#" onclick="toggleCartContainer()">
+        <a class="text-reset me-3 cursor-pointer" href="products/cart">
           <i class="fas fa-shopping-cart"></i>
         </a>
         <a class="text-reset me-3" href="#" onclick="toggleSearchBox()">
@@ -366,11 +466,6 @@
       </button>
   </div>
 </div>
-
-  <div class="cart-container" id="cartContainer">
-    <p>This is the cart container. You can add your content here.</p>
-    <button onclick="closeCartContainer()">Close</button>
-  </div>
 
 
   {% block body %}{% endblock body %}
@@ -498,20 +593,13 @@
     </div>
   </footer>
 
-
+  <a href="https://api.whatsapp.com/send?phone=923154419916" class="float" target="_blank">
+    <i class="fa-brands fa-whatsapp my-float"></i>
+    </a>
 
   <script type="text/javascript" src="{% static 'js/mdb.umd.min.js' %}"></script>
 
   <script type="text/javascript">
-    function toggleCartContainer() {
-      var cartContainer = document.getElementById('cartContainer');
-      cartContainer.classList.toggle('show');
-    }
-
-    function closeCartContainer() {
-      var cartContainer = document.getElementById('cartContainer');
-      cartContainer.classList.remove('show');
-    }
     // Calculate and set the width of the hover container dynamically
     window.addEventListener('DOMContentLoaded', function () {
       var dynamicWidthBoxes = document.querySelectorAll('.dynamic-width');
@@ -526,6 +614,51 @@
     var searchBox = document.getElementById('searchBox');
     searchBox.style.display = (searchBox.style.display === 'none' || searchBox.style.display === '') ? 'block' : 'none';
 }
+function updateQuantity(button, change) {
+  const row = button.closest('tr');
+  const quantityInput = row.querySelector('.form-control');
+  let quantity = parseInt(quantityInput.value) + change;
+
+  // Ensure quantity is at least 1
+  quantity = Math.max(1, quantity);
+
+  // Update the quantity input value
+  quantityInput.value = quantity;
+
+  // Update the total price
+  updateTotalPrice(row);
+}
+
+function removeProduct(button) {
+  const row = button.closest('tr');
+  row.remove();
+
+  // Update the total price after removing the product
+  updateTotalPrice(row);
+}
+
+function updateTotalPrice(row) {
+  const price = parseFloat(row.children[1].textContent.replace('$', ''));
+  const quantity = parseInt(row.querySelector('.form-control').value);
+  const totalCell = row.children[3];
+  const total = price * quantity;
+
+  // Update the total price cell
+  totalCell.textContent = `$${total.toFixed(2)}`;
+}
+$(document).ready(function(){
+  $('.count').prop('disabled', true);
+   $(document).on('click','.plus',function(){
+  $('.count').val(parseInt($('.count').val()) + 1 );
+  });
+    $(document).on('click','.minus',function(){
+    $('.count').val(parseInt($('.count').val()) - 1 );
+      if ($('.count').val() == 0) {
+      $('.count').val(1);
+    }
+      });
+});
+
   </script>
 
 

@@ -13,6 +13,4 @@ urlpatterns = [
     path('handlelogin', views.handlelogin, name="handlelogin"),  
     path('logouthandle', views.logouthandle, name="logouthandle"),  
     path('signup', views.signup, name="signup"),  
-    path('cart', views.cart, name="cart"),  
-    path('wishlist', views.index, name="wishlist"),  
 ]

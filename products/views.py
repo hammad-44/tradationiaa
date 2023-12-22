@@ -1,10 +1,18 @@
 from django.shortcuts import render,HttpResponse
 from .models import ClothProduct
-# Create your views here.
+
 def allproducts(request):
-    return HttpResponse("All Products")
+    return render(request, 'products/products.html')  
+
+def productdetails(request):
+    return render(request, 'products/productdetails.html') 
+
+def checkout(request):
+    return render(request, 'products/checkout.html') 
 
 
+def cart(request):
+    return render(request,"products/cart.html")
 
 def search(request):
     query=request.GET['query']
