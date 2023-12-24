@@ -190,6 +190,27 @@
       /* Change the text color as needed */
       text-decoration: none;
     }
+    .custom-dropdown ul{
+      height:400px;
+      width: 200px;
+      overflow-y:auto;
+    }
+    .custom-dropdown option{
+      height:400px;
+      width: 200px;
+      overflow-y:auto;
+      overflow-x:auto;
+    }
+    .nice-select .list {
+      overflow-y:auto;
+      overflow-x:auto;
+    }
+    .w-100 {
+      width: 90vw!important;
+  }
+  a:hover{
+    color:red;
+  }
   </style>
 
 
@@ -199,7 +220,8 @@
    <div id="preloder">
     <div class="loader"></div>
   </div>
-  <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
+
+  {% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary">
     <div class="container-fluid">
       <button data-mdb-collapse-init class="navbar-toggler" type="button" data-mdb-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -427,6 +449,9 @@
       </div>
 
       <div class="d-flex align-items-center">
+        <div class="me-2">
+          <select class="form-select custom-dropdown" id="countryPicker"></select>
+        </div>
         <a class="text-reset me-3 cursor-pointer" href="/products/cart">
           <i class="fas fa-shopping-cart"></i>
         </a>
@@ -452,6 +477,417 @@
 
       </div>
     </div>
+  </nav> {% endcomment %}
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button class="navbar-toggler px-0" type="button" data-toggle="collapse"
+        data-target="#navbarExample2" aria-controls="navbarExample2" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarExample2">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto ps-lg-0" style="padding-left: 0.15rem;align-items: center;">
+          <a class="navbar-brand mt-2 mt-lg-0 mx-auto mx-lg-0" href="/">
+            <img src="{% static 'img/logo.png' %}" height="45" alt="Tradationiaa" loading="lazy" />
+          </a>
+          <li class="nav-item">
+            <a  style="color:green" class="nav-link" href="#">NEW</a>
+          </li>
+          
+          <li class="nav-item">
+            <a style="color:red" class="nav-link" href="#">SALE</a>
+          </li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-expanded="false">
+              DRESSES
+            </a>
+            <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            width:100%;
+            box-shadow: 0px 0px 30px #b51818;
+            border-radius: 50px;
+              ">
+              <div class="container">
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group list-group-flush">
+                      <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Style
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">Anarkali</a>
+                      <a href="" class="list-group-item list-group-item-action">A-Line</a>
+                      <a href="" class="list-group-item list-group-item-action">Assymetric</a>
+                      <a href="" class="list-group-item list-group-item-action">Straight</a>
+                      <a href="" class="list-group-item list-group-item-action">Angrakha</a>
+                      <a href="" class="list-group-item list-group-item-action">Dress With Jacket</a>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group   list-group-flush">
+                      <p  class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Occasion
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">Party Wear</a>
+                      <a href="" class="list-group-item list-group-item-action">Office Wear</a>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+                    <div class="list-group list-group-flush">
+                      <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Collection
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">The Indigo Story</a>
+                      <a href="" class="list-group-item list-group-item-action">Ajrakh</a>
+                      <a href="" class="list-group-item list-group-item-action">Festival Special</a>
+                      <a href="" class="list-group-item list-group-item-action">Saanjh</a>
+                    </div>
+                  </div>
+                </div>
+           
+            </div>
+          </li>
+
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-expanded="false">
+              KURTAS
+            </a>
+            <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            width:100%;
+            box-shadow: 0px 0px 30px #b51818;
+            border-radius: 50px;
+             ">
+              <div class="container">
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group list-group-flush">
+                      <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Style
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">Anarkali</a>
+                      <a href="" class="list-group-item list-group-item-action">A-Line</a>
+                      <a href="" class="list-group-item list-group-item-action">Assymetric</a>
+                      <a href="" class="list-group-item list-group-item-action">Straight</a>
+                      <a href="" class="list-group-item list-group-item-action">Angrakha</a>
+                      <a href="" class="list-group-item list-group-item-action">Short Kurtis</a>
+                      <a href="" class="list-group-item list-group-item-action">Kurti With Jacket</a>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group   list-group-flush">
+                      <p  class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Occasion
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">Daily Wear</a>
+                      <a href="" class="list-group-item list-group-item-action">Party Wear</a>
+                      <a href="" class="list-group-item list-group-item-action">Office Wear</a>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+                    <div class="list-group list-group-flush">
+                      <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Collection
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">Bahar</a>
+                      <a href="" class="list-group-item list-group-item-action">Ajrakh</a>
+                      <a href="" class="list-group-item list-group-item-action">Nazaakat</a>
+                      <a href="" class="list-group-item list-group-item-action">Festival Special</a>
+                      <a href="" class="list-group-item list-group-item-action">Rook</a>
+                    </div>
+                  </div>
+                </div>
+           
+            </div>
+          </li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-expanded="false">
+              BOTTOMS
+            </a>
+            <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            width:100%;
+            box-shadow: 0px 0px 30px #b51818;
+            border-radius: 50px;
+             ">
+              <div class="container">
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group list-group-flush">
+                      <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Style
+                      </p>
+                      
+                       <a  class="list-group-item list-group-item-action" href="#">Straight Palazzos</a>
+                       <a  class="list-group-item list-group-item-action" href="#">Flared Palazzos</a>
+                       <a  class="list-group-item list-group-item-action" href="#">Salwars</a>
+                       <a  class="list-group-item list-group-item-action" href="#">Dhoti Pants</a>
+                       <a  class="list-group-item list-group-item-action" href="#">Salwars</a>
+                       <a  class="list-group-item list-group-item-action" href="#">Straight Pants</a>
+                       <a  class="list-group-item list-group-item-action" href="#">Sharara Pants</a>
+                       <a  class="list-group-item list-group-item-action" href="#">Skirts</a>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group   list-group-flush">
+                      <p  class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Occasion
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">Daily Wear</a>
+                      <a href="" class="list-group-item list-group-item-action">Party Wear</a>
+                      <a href="" class="list-group-item list-group-item-action">Office Wear</a>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+                    <div class="list-group list-group-flush">
+                      <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Collection
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">Bahaar</a>
+                      <a href="" class="list-group-item list-group-item-action">Nazaaqat</a>
+                      <a href="" class="list-group-item list-group-item-action">Festival Special</a>
+                    </div>
+                  </div>
+                </div>
+           
+            </div>
+          </li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-expanded="false">
+              EXTRA LOVE
+            </a>
+            <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            width:100%;
+            box-shadow: 0px 0px 30px #b51818;
+            border-radius: 50px;
+              ">
+              <div class="container">
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group list-group-flush">
+                      <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Catagory
+                      </p>
+                      <a class="list-group-item list-group-item-action" href="#">Kurtas</a>
+                      <a class="list-group-item list-group-item-action" href="#">Suits </a>
+                       
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group   list-group-flush">
+                      <p  class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Occasion
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">Daily Wear</a>
+                      <a href="" class="list-group-item list-group-item-action">Party Wear</a>
+                      <a href="" class="list-group-item list-group-item-action">Office Wear</a>
+                    </div>
+                  </div>
+                </div>
+           
+            </div>
+          </li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-expanded="false">
+              LEHENGAS
+            </a>
+            <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            width:100%;
+            box-shadow: 0px 0px 30px #b51818;
+            border-radius: 50px;
+             ">
+              <div class="container">
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group list-group-flush">
+                      <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Collection
+                      </p>
+                     
+                      <a class="list-group-item list-group-item-action"  href="#">Libas Kids</a>
+                      <a class="list-group-item list-group-item-action"  href="#">Noor</a>
+                      <a class="list-group-item list-group-item-action"  href="#">Saanjh</a>
+                      <a class="list-group-item list-group-item-action"  href="#">Festive Pastels</a>
+                       
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group   list-group-flush">
+                      <p  class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Occasion
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">Party Wear</a>
+                    </div>
+                  </div>
+                </div>
+           
+            </div>
+          </li>
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-expanded="false">
+              LOUNGEWEAR
+            </a>
+            <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown" style="
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            width:100%;
+            box-shadow: 0px 0px 30px #b51818;
+            border-radius: 50px;
+             ">
+              <div class="container">
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group list-group-flush">
+                      <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Catagory
+                      </p>
+                     
+                      <a class="list-group-item list-group-item-action"  href="#">Night Dresses</a>
+                    <a class="list-group-item list-group-item-action" href="#">Night Suits</a>
+                       
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </li>  
+         
+
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+              data-toggle="dropdown" aria-expanded="false">
+              SUITS
+            </a>
+            <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown1" style="
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            width:100%;
+            box-shadow: 0px 0px 30px #b51818;
+            border-radius: 50px;
+             ">
+              <div class="container">
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group list-group-flush">
+                      <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Top Style
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">Anarkali</a>
+                      <a href="" class="list-group-item list-group-item-action">A-Line</a>
+                      <a href="" class="list-group-item list-group-item-action">Assymetric</a>
+                      <a href="" class="list-group-item list-group-item-action">Straight</a>
+                      <a href="" class="list-group-item list-group-item-action">Angrakha</a>
+                      <a href="" class="list-group-item list-group-item-action">Front Slit</a>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group   list-group-flush">
+                      <p  class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Bottom Style
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">Straight Palazzos</a>
+                      <a href="" class="list-group-item list-group-item-action">Flared Palazzos</a>
+                      <a href="" class="list-group-item list-group-item-action">Salwars</a>
+                      <a href="" class="list-group-item list-group-item-action">Dhoti Pants</a>
+                      <a href="" class="list-group-item list-group-item-action">Straight Pants</a>
+                      <a href="" class="list-group-item list-group-item-action">Churidars</a>
+                      <a href="" class="list-group-item list-group-item-action">Sharara Pants</a>
+         
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-lg-3 mb-3 mb-md-0">
+                    <div class="list-group list-group-flush">
+                      <p class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Collection
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">Bahar</a>
+                      <a href="" class="list-group-item list-group-item-action">Ajrakh</a>
+                      <a href="" class="list-group-item list-group-item-action">Noor</a>
+                      <a href="" class="list-group-item list-group-item-action">Nazm</a>
+                      <a href="" class="list-group-item list-group-item-action">The Indigo Story</a>
+                      <a href="" class="list-group-item list-group-item-action">Saanjh</a>
+                    </div>
+                  </div>
+                </div>
+           
+            </div>
+          </li>
+
+          <li class="nav-item dropdown position-static">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+              data-toggle="dropdown" aria-expanded="false">
+              SAREES
+            </a>
+            <div class="dropdown-menu w-100 mt-0" aria-labelledby="navbarDropdown1" style="
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+            width:100%;
+            box-shadow: 0px 0px 30px #b51818;
+            border-radius: 50px;
+             ">
+              <div class="container">
+                  <div class="col-md-6 col-lg-3 mb-3 mb-lg-0">
+                    <div class="list-group list-group-flush">
+                      <p  class="mb-0 list-group-item text-uppercase font-weight-bold">
+                        Occasion
+                      </p>
+                      <a href="" class="list-group-item list-group-item-action">Daily Wear</a>
+                      <a href="" class="list-group-item list-group-item-action">Party Wear</a>
+                      <a href="" class="list-group-item list-group-item-action">Office Wear</a>
+                    </div>
+                  </div>
+                
+                  </div>
+                </div>
+           
+            </div>
+          </li>
+        
+
+
+        </ul>
+        <div class="d-flex align-items-center">
+          <div class="me-2">
+            <select class="form-select custom-dropdown" id="countryPicker"></select>
+          </div>
+          <a class="text-reset me-3 cursor-pointer" href="/products/cart">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+          <a class="text-reset me-3" href="#" onclick="toggleSearchBox()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+          {% if user.is_authenticated %}
+          <div class="dropdown">
+            <a class="text-reset me-3 hidden-arrow" href="/logouthandle" id="navbarDropdownMenuLink" role="button"
+              aria-expanded="false">Logout
+            </a>
+          </div>
+          {% else %}
+          <div class="dropdown">
+            <a class="d-flex align-items-center hidden-arrow" href="/handlelogin" id="navbarDropdownMenuAvatar"
+              role="button" aria-expanded="false">
+              <img src="{% static 'img/avt.png' %}" class="rounded-circle" height="25"
+                alt="Black and White Portrait of a Man" loading="lazy" />
+            </a>
+          </div>
+          {% endif %}
+  
+  
+        </div>
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
   </nav>
   <!-- Search box -->
   <div id="searchBox" class="position-fixed end-0 end-0 p-3 bg-light"
@@ -657,7 +1093,50 @@
         }
       });
     });
-
+    document.querySelectorAll('.navbar-nav .nav-item.dropdown').forEach(function (dropdown) {
+      dropdown.addEventListener('mouseenter', function () {
+          this.classList.add('show');
+          this.querySelector('.dropdown-menu').classList.add('show');
+      });
+  
+      dropdown.addEventListener('mouseleave', function () {
+          this.classList.remove('show');
+          this.querySelector('.dropdown-menu').classList.remove('show');
+      });
+  });
+    function populateCountryDropdown() {
+      const countries = [
+      'PAK' ,'US', 'Canada', 'GB', 'Germany', 'France', 'Italy', 'Spain', 'AUS', 'IND', 'China', 'AFG', 'AL', 'DZ',
+      'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'AM', 'Austria', 'Azerbaijan', 'BS', 'BH', 'Bangladesh', 'BB', 'Belarus',
+      'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'BA', 'Botswana', 'Brazil', 'BN', 'BG', 'Burk', 'BI', 'Cabo Verde', 'KH',
+      'Cameroon', 'CA', 'CF', 'TD', 'Chile', 'CN', 'CO', 'KM', 'CG', 'CR', 'Croatia', 'Cuba', 'Cyprus', 'Czechia', 'CD', 'Denmark', 'Djibouti',
+      'Dominica', 'DO', 'TL', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'SZ', 'Ethiopia', 'Fiji', 'Finland',
+      'France', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'GD', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti',
+      'Holy See', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Ivory Coast', 'Jamaica',
+      'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya',
+      'Liechtenstein', 'Lithuania', 'Luxembourg', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania',
+      'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'MM', 'Namibia', 'Nauru', 'Nepal',
+      'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'MK', 'Norway', 'Oman', 'PAK', 'PW', 'PS', 'Panama',
+      'Papua ', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'QA', 'Romania', 'Russia', 'Rwanda', 'Saint K',
+      'Saint Lucia', 'Saint', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia',
+      'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'South Sudan',
+      'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Sweden', 'Switzerland', 'Syria', 'Tajikistan', 'Tanzania', 'Thailand', 'Togo', 'Tonga',
+      'Trini', 'Tunisia', 'Turkey', 'Turk', 'Tuvalu', 'Uganda', 'Ukraine', 'UAE', 'GB', 'USA',
+      'Uruguay', 'Uzbek', 'VU', 'VE', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'
+    ];
+    
+    
+  
+      const countryPicker = document.getElementById('countryPicker');
+  
+      countries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country;
+        option.text = country;
+        countryPicker.add(option);
+      });
+    }
+    populateCountryDropdown();
   </script>
   <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
   <script src="{% static 'js/bootstrap.min.js' %}"></script>
