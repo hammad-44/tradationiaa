@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#d1^jqr(k9a=-@sl!x2mcsf&v%vrp7fcr57-v0=$z&d00@smz3
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-DATABASE_URL = "postgresql://hammadhaider:YUVDsmH9F9yvAtrdFbocjw@wanted-condor-7822.8nk.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full"
+DATABASE_URL = "postgresql://hammadhaider:YUVDsmH9F9yvAtrdFbocjw@wanted-condor-7822.8nk.cockroachlabs.cloud:26257/defaultdb"
 ALLOWED_HOSTS = ["*"]
 
 
