@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{% endblock title %}
+{% block title %}Product Details{% endblock title %}
 
 {% block body %}
 
@@ -41,72 +41,146 @@
               Quality Men's Hoodie for Winter, Men's Fashion <br />
               Casual Hoodie
             </h4>
-            <div class="d-flex flex-row my-3">
-              <div class="text-warning mb-1 me-2">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fas fa-star-half-alt"></i>
-                <span class="ms-1">
-                  4.5
-                </span>
-              </div>
-              <span class="text-muted"><i class="fas fa-shopping-basket fa-sm mx-1"></i>154 orders</span>
-              <span class="text-success ms-2">In stock</span>
-            </div>
   
             <div class="mb-3">
-              <span class="h5">$75.00</span>
-              <span class="text-muted">/per box</span>
+              <span class="h5" style="color:red;font-weight:bold"> $75.00</span>
             </div>
   
             <p>
               Modern look and quality demo item is a streetwear-inspired collection that continues to break away from the conventions of mainstream fashion. Made in Italy, these black and brown clothing low-top shirts for
               men.
             </p>
-  
-            <div class="row">
-              <dt class="col-3">Type:</dt>
-              <dd class="col-9">Regular</dd>
-  
-              <dt class="col-3">Color</dt>
-              <dd class="col-9">Brown</dd>
-  
-              <dt class="col-3">Material</dt>
-              <dd class="col-9">Cotton, Jeans</dd>
-  
-              <dt class="col-3">Brand</dt>
-              <dd class="col-9">Reebook</dd>
-            </div>
-  
-            <hr />
-  
-            <div class="row mb-4">
-              <div class="col-md-4 col-6">
-                <label class="mb-2">Size</label>
-                <select class="form-select border border-secondary" style="height: 35px;">
-                  <option>Small</option>
-                  <option>Medium</option>
-                  <option>Large</option>
-                </select>
+            <div class="product__details__option">
+              <div class="product__details__option__size">
+                  <span>Size:</span>
+                  <label for="xxl">xxl
+                      <input type="radio" id="xxl">
+                  </label>
+                  <label class="active" for="xl">xl
+                      <input type="radio" id="xl">
+                  </label>
+                  <label for="l">l
+                      <input type="radio" id="l">
+                  </label>
+                  <label for="sm">s
+                      <input type="radio" id="sm">
+                  </label>
               </div>
-              <!-- col.// -->
-              <div class="col-md-4 col-6 mb-3">
-                <label class="mb-2 d-block">Quantity</label>
-                <div class="qty">
-                    <span class="minus bg-dark">-</span>
-                    <input type="number" class="count" name="qty" value="1">
-                    <span class="plus bg-dark">+</span>
-                </div>
+              <div class="product__details__option__color">
+                  <span>Color:</span>
+                  <label class="c-1" for="sp-1">
+                      <input type="radio" id="sp-1">
+                  </label>
+                  <label class="c-2" for="sp-2">
+                      <input type="radio" id="sp-2">
+                  </label>
+                  <label class="c-3" for="sp-3">
+                      <input type="radio" id="sp-3">
+                  </label>
+                  <label class="c-4" for="sp-4">
+                      <input type="radio" id="sp-4">
+                  </label>
+                  <label class="c-9" for="sp-9">
+                      <input type="radio" id="sp-9">
+                  </label>
               </div>
-            </div>
-            <a href="#" class="btn btn-primary shadow-0"> <i class="me-1 fa fa-shopping-basket"></i> Add to cart </a>
           </div>
+          <div class="product__details__cart__option">
+              <div class="quantity">
+                  <div class="pro-qty">
+                      <input type="text" value="1">
+                  </div>
+              </div>
+              <a href="#" class="primary-btn">add to cart</a>
+            </div> </div>
+      
+            <button style="background-color: red; text-align: center; color: white; cursor: pointer;"
+            onmouseover="this.style.backgroundColor='green';"
+            onmouseout="this.style.backgroundColor='blue';" type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal">
+              Show Size Chart
+            </button>
+            
         </main>
       </div>
     </div>
   </section>
   <!-- content -->
+<!-- Button trigger modal -->
 
+<!-- Modal -->
+<div class="modal fade" id="basicExampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel"><strong>Size Chart</strong></h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table custom-table">
+          <thead>
+            <tr>
+              <th scope="col"><strong>SIZE</strong></th>
+              <th scope="col"><strong>SHOULDER</strong></th>
+              <th scope="col"><strong>BUST</strong></th>
+              <th scope="col"><strong>WAIST</strong></th>
+              <th scope="col"><strong>HIP</strong></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><strong>XS</strong></th>
+              <td>34.3</td>
+              <td>86.6</td>
+              <td>76.2</td>
+              <td>91.4</td>
+            </tr>
+            <tr>			
+            <th scope="row"><strong>S</strong></th>
+            <td>35.6</td>
+            <td>91.4</td>
+            <td>81.3</td>
+            <td>96.5</td>
+          </tr>
+            <tr>
+              <th scope="row"><strong>M</strong></th>
+              <td>36.8</td>
+              <td>96.5</td>
+              <td>86.4</td>
+              <td>102</td>
+            </tr>
+            <tr>
+              <th scope="row"><strong>L</strong></th>
+              <td>38.1</td>
+              <td>102</td>
+              <td>91.4</td>
+              <td>107</td>
+            </tr>
+            <tr>
+              <th scope="row"><strong>XL</strong></th>
+              <td>39.4</td>
+              <td>107</td>
+              <td>96.5</td>
+              <td>112</td>
+            </tr>
+            
+            <tr>
+              <th scope="row"><strong>XXL</strong></th>
+              <td>40.6</td>
+              <td>112</td>
+              <td>102</td>
+              <td>117</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+ 
 {% endblock body %}
