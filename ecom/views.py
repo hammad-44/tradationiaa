@@ -8,17 +8,17 @@ from django.contrib import messages
 from django.conf import settings
 
 def home_view(request):
-    products=models.Product.objects.all()
-    if 'product_ids' in request.COOKIES:
-        product_ids = request.COOKIES['product_ids']
-        counter=product_ids.split('|')
-        product_count_in_cart=len(set(counter))
-    else:
-        product_count_in_cart=0
-    if request.user.is_authenticated:
-        return HttpResponseRedirect('afterlogin')
-    return render(request,'ecom/index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
-    
+    # products=models.Product.objects.all()
+    # if 'product_ids' in request.COOKIES:
+    #     product_ids = request.COOKIES['product_ids']
+    #     counter=product_ids.split('|')
+    #     product_count_in_cart=len(set(counter))
+    # else:
+    #     product_count_in_cart=0
+    # if request.user.is_authenticated:
+    #     return HttpResponseRedirect('afterlogin')
+    # return render(request,'ecom/index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
+    return render(request,"ecom/index.html")
 
 
 #for showing login button for admin(by sumit)
@@ -193,12 +193,6 @@ def update_order_view(request,pk):
     return render(request,'ecom/update_order.html',{'orderForm':orderForm})
 
 
-# admin view the feedback
-@login_required(login_url='adminlogin')
-def view_feedback_view(request):
-    feedbacks=models.Feedback.objects.all().order_by('-id')
-    return render(request,'ecom/view_feedback.html',{'feedbacks':feedbacks})
-
 
 
 #---------------------------------------------------------------------------------
@@ -314,15 +308,6 @@ def remove_from_cart_view(request,pk):
         response.set_cookie('product_ids',value)
         return response
 
-
-def send_feedback_view(request):
-    feedbackForm=forms.FeedbackForm()
-    if request.method == 'POST':
-        feedbackForm = forms.FeedbackForm(request.POST)
-        if feedbackForm.is_valid():
-            feedbackForm.save()
-            return render(request, 'ecom/feedback_sent.html')
-    return render(request, 'ecom/send_feedback.html', {'feedbackForm':feedbackForm})
 
 
 #---------------------------------------------------------------------------------
