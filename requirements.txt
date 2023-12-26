@@ -1,4 +1,10 @@
-Django==3.0.5
-django-widget-tweaks==1.4.8
-sqlparse==0.3.1
-xhtml2pdf
+asgiref==3.7.2
+dj-database-url==2.1.0
+Django==4.2.8
+django-cockroachdb==4.2
+Pillow==10.1.0
+psycopg2-binary==2.9.9
+sqlparse==0.4.4
+typing_extensions==4.9.0
+tzdata==2023.3
+whitenoise==6.5.0
