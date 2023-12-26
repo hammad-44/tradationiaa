@@ -11,9 +11,7 @@ urlpatterns = [
     path('aboutus', views.aboutus_view),
     path('contactus', views.contactus_view,name='contactus'),
     path('search', views.search_view,name='search'),
-    path('send-feedback', views.send_feedback_view,name='send-feedback'),
-    path('view-feedback', views.view_feedback_view,name='view-feedback'),
-
+ 
     path('adminclick', views.adminclick_view),
     path('adminlogin', LoginView.as_view(template_name='ecom/adminlogin.html'),name='adminlogin'),
     path('admin-dashboard', views.admin_dashboard_view,name='admin-dashboard'),
@@ -39,8 +37,7 @@ urlpatterns = [
     # path('my-order', views.my_order_view2,name='my-order'),
     path('my-profile', views.my_profile_view,name='my-profile'),
     path('edit-profile', views.edit_profile_view,name='edit-profile'),
-    path('download-invoice/<int:orderID>/<int:productID>', views.download_invoice_view,name='download-invoice'),
-
+ 
 
     path('add-to-cart/<int:pk>', views.add_to_cart_view,name='add-to-cart'),
     path('cart', views.cart_view,name='cart'),
