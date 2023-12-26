@@ -1,0 +1,31 @@
+{% extends 'ecom/homebase.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block header %}
+<div id="intro" class="bg-image" style="
+background-image: url({% static 'images/heroimg.png' %});
+opacity:200;
+height: 90vh;
+">
+<div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.7)">
+<div  class="container d-flex align-items-center text-center h-100">
+ <div>
+   <h1 class="mb-2" style="font-family: 'Playfair Display', serif;">ONLINE <span style="font-family: 'Sevillana', cursive;color:#08a99e">stiching</span> SERVICE</h1>
+   <p style="font-size:20px">
+    From measurements to masterpiece, redefine your wardrobe effortlessly. Explore our online stitching service and step into a world of personalized fashion that fits you, inside and out.
+   </p>
+   <button class="btn btn-primary">Place Your Order</button>
+ </div>
+</div>
+</div>
+</div>
+
+ 
+{% endblock header %}
+
+{% block content %}
+
+
+
+{% endblock content %}
