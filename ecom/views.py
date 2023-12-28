@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from . import forms,models
+from . import models
 from django.http import HttpResponseRedirect
 from django.contrib.auth.models import User 
 from django.contrib.auth.models import Group
@@ -31,24 +31,24 @@ def adminclick_view(request):
     return HttpResponseRedirect('adminlogin')
 
 
-def customer_signup_view(request):
-    userForm=forms.CustomerUserForm()
-    customerForm=forms.CustomerForm()
-    mydict={'userForm':userForm,'customerForm':customerForm}
-    if request.method=='POST':
-        userForm=forms.CustomerUserForm(request.POST)
-        customerForm=forms.CustomerForm(request.POST,request.FILES)
-        if userForm.is_valid() and customerForm.is_valid():
-            user=userForm.save()
-            user.set_password(user.password)
-            user.save()
-            customer=customerForm.save(commit=False)
-            customer.user=user
-            customer.save()
-            my_customer_group = Group.objects.get_or_create(name='CUSTOMER')
-            my_customer_group[0].user_set.add(user)
-        return HttpResponseRedirect('customerlogin')
-    return render(request,'ecom/customersignup.html',context=mydict)
+# def customer_signup_view(request):
+#     userForm=forms.CustomerUserForm()
+#     customerForm=forms.CustomerForm()
+#     mydict={'userForm':userForm,'customerForm':customerForm}
+#     if request.method=='POST':
+#         userForm=forms.CustomerUserForm(request.POST)
+#         customerForm=forms.CustomerForm(request.POST,request.FILES)
+#         if userForm.is_valid() and customerForm.is_valid():
+#             user=userForm.save()
+#             user.set_password(user.password)
+#             user.save()
+#             customer=customerForm.save(commit=False)
+#             customer.user=user
+#             customer.save()
+#             my_customer_group = Group.objects.get_or_create(name='CUSTOMER')
+#             my_customer_group[0].user_set.add(user)
+#         return HttpResponseRedirect('customerlogin')
+#     return render(request,'ecom/customersignup.html',context=mydict)
 
 #-----------for checking user iscustomer
 def is_customer(user):
@@ -154,16 +154,16 @@ def admin_products_view(request):
     return render(request,'ecom/admin_products.html',{'products':products})
 
 
-# admin add product by clicking on floating button
-@login_required(login_url='admin')
-def admin_add_product_view(request):
-    productForm=forms.ProductForm()
-    if request.method=='POST':
-        productForm=forms.ProductForm(request.POST, request.FILES)
-        if productForm.is_valid():
-            productForm.save()
-        return HttpResponseRedirect('admin-products')
-    return render(request,'ecom/admin_add_products.html',{'productForm':productForm})
+# # admin add product by clicking on floating button
+# @login_required(login_url='admin')
+# def admin_add_product_view(request):
+#     productForm=forms.ProductForm()
+#     if request.method=='POST':
+#         productForm=forms.ProductForm(request.POST, request.FILES)
+#         if productForm.is_valid():
+#             productForm.save()
+#         return HttpResponseRedirect('admin-products')
+#     return render(request,'ecom/admin_add_products.html',{'productForm':productForm})
 
 
 @login_required(login_url='admin')
@@ -173,17 +173,36 @@ def delete_product_view(request,pk):
     return redirect('admin-products')
 
 
-@login_required(login_url='admin')
-def update_product_view(request,pk):
-    product=models.Product.objects.get(id=pk)
-    productForm=forms.ProductForm(instance=product)
-    if request.method=='POST':
-        productForm=forms.ProductForm(request.POST,request.FILES,instance=product)
-        if productForm.is_valid():
-            productForm.save()
-            return redirect('admin-products')
-    return render(request,'ecom/admin_update_product.html',{'productForm':productForm})
+# @login_required(login_url='admin')
+# def update_product_view(request,pk):
+#     product=models.Product.objects.get(id=pk)
+#     productForm=forms.ProductForm(instance=product)
+#     if request.method=='POST':
+#         productForm=forms.ProductForm(request.POST,request.FILES,instance=product)
+#         if productForm.is_valid():
+#             productForm.save()
+#             return redirect('admin-products')
+#     return render(request,'ecom/admin_update_product.html',{'productForm':productForm})
 
+
+
+def order(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        gender = request.POST['gender']
+        service = request.POST['service']
+        address = request.POST['address']  # Add this line to capture the address
+        notes = request.POST['Ordernotes']  # Make sure the name matches your HTML form
+
+        # Create an instance of the Orders model and save it to the database
+        order_instance = models.ServiceOrders(name=name, email=email, phone=phone, gender=gender, service=service, address=address, notes=notes)
+        order_instance.save()
+
+        return render(request, 'ecom/ordersuccess.html')
+    
+    return render(request, 'ecom/placeorder.html')
 
 
 #---------------------------------------------------------------------------------

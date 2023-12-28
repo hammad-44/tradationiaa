@@ -14,7 +14,7 @@ import os
 from django.contrib import messages
 import dj_database_url
 
-DATABASE_URL = "postgresql://hammadhaider:YUVDsmH9F9yvAtrdFbocjw@wanted-condor-7822.8nk.cockroachlabs.cloud:26257/defaultdb"
+DATABASE_URL = "postgresql://hammadhaiderbsit21f0:euXWnYPmA0bmuDQbzb4ntA@acid-monkey-7897.8nk.cockroachlabs.cloud:26257/defaultdb"
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

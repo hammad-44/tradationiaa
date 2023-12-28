@@ -1,11 +1,8 @@
 from django.contrib import admin
-from .models import Product, Contact
+from .models import Product, Contact, ServiceOrders
 
-class ProductAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(Product, ProductAdmin)
+admin.site.register(Product)
 
+admin.site.register(Contact)
 
-class ContactAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(Contact, ContactAdmin)
+admin.site.register(ServiceOrders)

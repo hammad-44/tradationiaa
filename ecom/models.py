@@ -9,26 +9,21 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-
-# class Orders(models.Model):
-#     STATUS =(
-#         ('Pending','Pending'),
-#         ('Order Confirmed','Order Confirmed'),
-#         ('Out for Delivery','Out for Delivery'),
-#         ('Delivered','Delivered'),
-#     )
-#     customer=models.ForeignKey('Customer', on_delete=models.CASCADE,null=True)
-#     product=models.ForeignKey('Product',on_delete=models.CASCADE,null=True)
-#     email = models.CharField(max_length=50,null=True)
-#     address = models.CharField(max_length=500,null=True)
-#     mobile = models.CharField(max_length=20,null=True)
-#     order_date= models.DateField(auto_now_add=True,null=True)
-#     status=models.CharField(max_length=50,null=True,choices=STATUS)
-
-
 class Contact(models.Model):
     name = models.CharField(max_length=40)
     email = models.CharField(max_length=40)
     message = models.TextField()
     def __str__(self):
         return f"{self.name} From {self.email}"
+    
+class ServiceOrders(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    phone = models.CharField(max_length=50)
+    gender = models.CharField(max_length=12)
+    service = models.CharField(max_length=50)
+    address = models.TextField(null=True)
+    notes = models.TextField()
+    order_time = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return f'From {self.name} For {self.service} On {self.order_time}'

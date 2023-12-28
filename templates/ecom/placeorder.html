@@ -1,0 +1,76 @@
+{% extends 'ecom/homebase.html' %}
+{% load static %}
+{% block title %}Place Your Order{% endblock title %}
+{% block header %}
+ <div id="intro" class="bg-image" style="
+  background-image: url({% static 'images/heroimg.png' %});
+  opacity:200;
+  height: 50vh;
+  ">
+  <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.7)">
+    <div class="container d-flex align-items-center justify-content-center text-center h-100">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <h1 class="mb-2 pf">Place <span style="font-family: 'Sevillana', cursive;color:#08a99e">Your</span>Order
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class='container mt-5'>
+    <div class="row mb-5">
+    <div class="col-lg-6 col-sm-12">
+        <h2 class="text-align-left pf my-5">Place Your Order</h2>
+   
+            <form class="form-horizontal" method="post" action="/order">  
+                {% csrf_token %}  
+                    <h4 class="text-center pf">Please fill in the details</h4>
+
+                <div class="form-group" style="margin-top:2rem !important;">
+                    <i class="fa fa-user"></i><input style="margin-left:1rem !important;" class="form-control" type="text" placeholder="Your Full Name" name="name">
+                </div>
+                <div class="form-group" style="margin-top:2rem !important;">
+                    <i class="fa-solid fa-phone"></i><input style="margin-left:1rem !important;" class="form-control" type="number" placeholder="Your Phone Number" name="phone">
+                </div>
+                <div class="form-group" style="margin-top:2rem !important;">
+                    <i class="fa-solid fa-envelope"></i><input style="margin-left:1rem !important;" class="form-control" type="email" placeholder="Your Email" name="email">
+                </div>
+                <div class="d-flex align-items-center"  style="margin-top:2.2rem !important;">
+                    <select class="selectpicker form-control" name="gender">
+                        <option selected="selected">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                    <i class="fa-solid fa-sort-down"></i>
+             </div>
+              <div class="d-flex align-items-center"  style="margin-top:2rem !important;">
+                <select class="selectpicker form-control" name="service">
+                    <option selected="selected">Select Your Order</option>
+                    <option value="Salwar Suit">Salwar Suit</option>
+                    <option value="Top / Kurta">Top / Kurta</option>
+                    <option value="Bootom / Salwar">Bootom / Salwar</option>
+                    <option value="Kids Wear">Kids Wear</option>
+                    <option value="Bridal Wear">Bridal Wear</option>
+                    <option value="Maxi">Maxi</option>
+                    <option value="Saree or Blouse">Saree or Blouse</option>
+                    <option value="Lehnga Choli">Lehnga Choli</option>
+                    <option value="Nightwear">Nightwear</option>
+                </select>
+                <i class="fa-solid fa-sort-down"></i>
+              </div>
+                <div class="form-group" style="margin-top:2rem !important;">
+                    <i class="fa-solid fa-location-dot"></i><input style="margin-left:1rem !important;" class="form-control" type="text" placeholder="Your Adress" name="address">
+                </div>
+                <div class="form-group" style="margin-top:2rem !important;">
+                    <i class="fa-regular fa-note-sticky"></i><textarea style="margin-left:1rem !important;" class="form-control" type="text" placeholder="Notes" name="Ordernotes"></textarea>
+                </div>
+                <button type="submit" class="btn1 btn-default">Place Order</button>
+            </form>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+        <h2 class="text-align-left pf my-5">SIZE CHART</h2>
+        <img src="{% static 'images/schart.jpg' %}" />
+    </div>
+</div>
+</section>
+{% endblock header %}
