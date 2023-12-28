@@ -1,42 +1,98 @@
-<!DOCTYPE html>
+{% extends "ecom/homebase.html" %}
 {% load static %}
-<html lang="en" dir="ltr">
-
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <title>Simple E-commerce</title>
-
-
-</head>
-
-<body style="background-color: #B3E5FC;">
-
-  {%if request.user.is_authenticated%}
-    {% include "ecom/customer_navbar.html" %}
-  {%else%}
-    {% include "ecom/navbar.html" %}
-  {%endif%}
-
-  <center>
-    <h3 class='alert alert-success'>Send Us Your Valuable Feedback !</h3>
-
-    <form method="POST">
-      <!-- Very Important csrf Token -->
-      {% csrf_token %}
-      <div class="form-group">
-        <p>
-        <h3>{{ form.as_p }}</h3>
+{% block title %}Contact{% endblock title %}
+{% block header %}
+ <div id="intro" class="bg-image" style="
+  background-image: url({% static 'images/heroimg.png' %});
+  opacity:200;
+  height: 90vh;
+  ">
+  <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.7)">
+    <div class="container d-flex align-items-center text-center h-100">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <h1 class="mb-2 pf">GET <span style="font-family: 'Sevillana', cursive;color:#08a99e">in</span> TOUCH
+        </h1>
+        <p style="font-size:20px ">
+          Connect with us effortlessly through our Contact Us page, your gateway to seamless communication and personalized support.
         </p>
-        <br>
-        <input type="submit" value="Send Message" class='btn btn-primary btn-lg'>
-      </div>
-    </form>
-  </center>
-  {% include "ecom/footer.html" %}
-</body>
-<!--
-developed By : sumit kumar
--->
+        <a href="#" class="pt-5"><button class="btn1 btn-primary" onclick="scrollDown()">Scroll Down</button></a>
 
-</html>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock header %}
+{% block content %}
+<section class="text-center my-5">
+  <h2 class="mb-5 pf">Contact us</h2>
+ <div class="container">
+  <div class="row">
+    <div class="col-lg-7">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217759.99380853778!2d74.3343893!3d31.482940349999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C%20Punjab!5e0!3m2!1sen!2s!4v1703710690754!5m2!1sen!2s"
+        class="h-100 w-100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div class="col-lg-5 col-md-6 mb-4 mb-md-0">
+      <h5 class="text-uppercase mb-4 text-lg-start font-weight-bolder">Contact</h5>
+
+      <ul class="list-unstyled text-left">
+        <li>
+          <p><i class="fas fa-2x fa-map-marker-alt pe-2"></i>&nbsp;&nbsp; Lahore, Pakistan</p>
+        </li>
+        <li>
+            <p><i class="fas fa-2x fa-phone pe-2"></i>
+              <a href="tel:03154419916">+92 315 4419916</a></p>
+          
+        </li>
+        <li>
+            <p><i class="fas fa-2x fa-envelope pe-2 mb-0"></i>
+              
+          <a href="mailto:ujalaarslan2021@icloud.com">ujalaarslan2021@icloud.com </a></p>
+         
+        </li>
+      </ul>
+      <div class="d-flex mt-5 social-icons-foot">
+        <a class="btn" style="border: 2px solid #08a99e;transform: rotate(45deg);margin: 0px 10px;" href="#!"
+          role="button"><span class="fab fa-facebook"></span></a>
+        <a class="btn" style="border: 2px solid #08a99e;transform: rotate(45deg);margin: 0px 10px;" href="#!"
+          role="button"><span class="fab fa-instagram"></span></a>
+        <a class="btn" style="border: 2px solid #08a99e;transform: rotate(45deg);margin: 0px 10px;" href="#!"
+          role="button"><span class="fab fa-linkedin"></span></a>
+        <a class="btn" style="border: 2px solid #08a99e;transform: rotate(45deg);margin: 0px 10px;" href="https://wa.me/+923154419916?text=Your Message :" target="_blank"
+          role="button"><span class="fab fa-whatsapp"></span></a>
+      </div>
+    </div>
+  </div>
+ </div>
+ <h2 class="mb-5 pf mt-5 ">OR</h2>
+
+ <div class="container mt-4 d-flex flex-column justify-content-center align-items-center">
+  <h2 class="mb-5 pf mt-5 ">Leave a Message</h2>
+  <div class="container-sm py-5 d-flex flex-column justify-content-center align-items-center" style="width:30rem;border-radius:10px;box-shadow:0 0 15px #08a99e; border:1px solid black">
+  <form style="width: 26rem;">
+    <!-- Name input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="text" id="form4Example1" class="form-control" />
+      <label class="form-label" for="form4Example1">Name</label>
+    </div>
+  
+    <!-- Email input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="email" id="form4Example2" class="form-control" />
+      <label class="form-label" for="form4Example2">Email address</label>
+    </div>
+  
+    <!-- Message input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+      <label class="form-label" for="form4Example3">Message</label>
+    </div>
+  
+    <!-- Submit button -->
+    <button data-mdb-ripple-init type="button" class="btn1 btn-primary">Send</button>
+  </form>
+</div>
+ </div>
+</section>
+{% endblock content %}
+
+

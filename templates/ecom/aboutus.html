@@ -1,31 +1,169 @@
-<!DOCTYPE html>
+{% extends 'ecom/homebase.html' %}
 {% load static %}
-<html lang="en" dir="ltr">
+{% block title %}About us{% endblock title %}
+{% block header %}
+ <div id="intro" class="bg-image" style="
+  background-image: url({% static 'images/heroimg.png' %});
+  opacity:200;
+  height: 90vh;
+  ">
+  <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.7)">
+    <div class="container d-flex align-items-center text-center h-100">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <h1 class="mb-2 pf">About <span style="font-family: 'Sevillana', cursive;color:#08a99e"></span> Us
+        </h1>
+        <p style="font-size:20px ">
+          From Measurements to Masterpiece: Redefine Your Wardrobe Effortlessly. Explore Our Online <span style="color:#08a99e">Stitching Service</span> and Step Into a World of Personalized Fashion That Fits You, Inside and Out.
+        </p>
+        <a href="#"><button class="btn1 btn-primary">Place Your Order</button></a>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Simple E-commerce</title>
-  <style media="screen">
-    .footer{
-      position: fixed;
-    }
-  </style>
-</head>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock header %}
 
-<body style="background-color:#f7f7f7;">
-  {%if request.user.is_authenticated%}
-    {% include "ecom/customer_navbar.html" %}
-  {%else%}
-    {% include "ecom/navbar.html" %}
-  {%endif%}
-  <br><br><br>
-<h3 style="text-align:center;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </h3>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  {% include "ecom/footer.html" %}
-</body>
-<!--
-developed By : sumit kumar
--->
 
-</html>
+{% block content %}
+<!-- About 1 - Bootstrap Brain Component -->
+<section class="py-3 py-md-5">
+  <div class="container">
+    <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
+      <div class="col-12 col-lg-6 col-xl-5">
+        <img class="img-fluid rounded" loading="lazy" src="https://img.freepik.com/free-vector/people-sewing-mask-concept_23-2148550071.jpg" alt="About 1">
+      </div>
+      <div class="col-12 col-lg-6 col-xl-7">
+        <div class="row justify-content-xl-center">
+          <div class="col-12 col-xl-11">
+            <h2 class="mb-3">Who Are We?</h2>
+            <p class="lead fs-4 text-secondary mb-3"> Our skilled artisans seamlessly merge tradition with innovation, ensuring every stitch reflects our commitment to excellence.</p>
+            <p class="mb-5">At the heart of our company is a relentless pursuit of perfection in every garment we create. With a keen eye for detail and a dedication to customer satisfaction, we strive to exceed expectations in delivering tailored solutions.</p>
+            <div class="row gy-4 gy-md-0 gx-xxl-5X">
+              <div class="col-12 col-md-6">
+                <div class="d-flex">
+                  <div class="me-4 text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                      <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 class="h4 mb-3">Versatile Brand</h2>
+                    <p class="text-secondary mb-0">We are crafting a digital method that subsists life across all mediums.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="d-flex">
+                  <div class="me-4 text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-fire" viewBox="0 0 16 16">
+                      <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 class="h4 mb-3">Premium Quality</h2>
+                    <p class="text-secondary mb-0">We believe in innovation by merging primary with elaborate ideas.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-3 py-md-5" style="background-color: #eee;">
+  <div class="container">
+    <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
+      <div class="col-12 col-lg-6 col-xl-7">
+        <div class="row justify-content-xl-center">
+          <div class="col-12 col-xl-11">
+            <h2 class="mb-3">What We Do?</h2>
+            <p class="lead fs-4 text-secondary mb-3">From intricate detailing to personalized fittings, our commitment to quality shines through in every garment we create. Trust us to transform your dreams into reality</p>
+            <p class="mb-5">As a leading provider of stitching services, we specialize in crafting exquisite and customized dresses, with a particular emphasis on stunning bridal wears.Whether it's a personalized gown or a tailored ensemble, we strive to make your special moments truly unforgettable with our expertly tailored creations.</p>
+            <div class="row gy-4 gy-md-0 gx-xxl-5X">
+              <div class="col-12 col-md-6">
+                <div class="d-flex">
+                  <div class="me-4 text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                      <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 class="h4 mb-3">Tailored Perfection</h2>
+                    <p class="text-secondary mb-0">Curating garments that reflect not just fashion, but a personalized expression of your unique style and grace.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="d-flex">
+                  <div class="me-4 text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-fire" viewBox="0 0 16 16">
+                      <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 class="h4 mb-3">Meets Precision.</h2>
+                    <p class="text-secondary mb-0">At the intersection of style and expertise, Fashion Meets Grace in a seamless symphony of design and craftsmanship.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 col-xl-5">
+        <img class="img-fluid rounded" loading="lazy" src="https://cdni.iconscout.com/illustration/premium/thumb/gujarati-woman-is-working-on-a-stitching-machine-2775549-2319267.png" alt="About 1">
+      </div>
+   
+    </div>
+  </div>
+</section>
+<section class="py-3 py-md-5">
+  <div class="container">
+    <div class="row gy-3 gy-md-4 gy-lg-0 align-items-lg-center">
+      <div class="col-12 col-lg-6 col-xl-5">
+        <img class="img-fluid rounded" loading="lazy" src="https://cdni.iconscout.com/illustration/premium/thumb/dressmakers-working-in-studio-4704065-3916237.png" alt="About 1">
+      </div>
+      <div class="col-12 col-lg-6 col-xl-7">
+        <div class="row justify-content-xl-center">
+          <div class="col-12 col-xl-11">
+            <h2 class="mb-3">Why Choose Us?</h2>
+            <p class="lead fs-4 text-secondary mb-3">With a focus on personalized service, timely delivery, and a passion for perfection, we stand out as your preferred choice for unparalleled craftsmanship and a truly memorable attire.</p>
+     
+            <div class="row gy-4 gy-md-0 gx-xxl-5X">
+              <div class="col-12 col-md-6">
+                <div class="d-flex">
+                  <div class="me-4 text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                      <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 class="h4 mb-3">Seamless Elegance</h2>
+                    <p class="text-secondary mb-0">Promising attire that seamlessly blends sophistication and contemporary allure.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="d-flex">
+                  <div class="me-4 text-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-fire" viewBox="0 0 16 16">
+                      <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h2 class="h4 mb-3">Timeless Beauty.</h2>
+                    <p class="text-secondary mb-0">Woven meticulously into every stitch, ensuring a garment that transcends trends and stands the test of time.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
