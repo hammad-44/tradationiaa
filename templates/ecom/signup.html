@@ -1,0 +1,71 @@
+{% extends 'ecom/homebase.html' %}
+{% load static %}
+{% block title %}Sign in{% endblock title %}
+{% block header %}
+
+ <div id="intro" class="bg-image" style="
+  background-image: url({% static 'images/heroimg.png' %});
+  opacity:200;
+  height: 100vh;
+  ">
+  <div class="mask text-white py-5" style="background-color: rgba(0, 0, 0, 0.7)">
+    <section class="vh-100 bg-image">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container mt-5 h-100">
+        {% for message in messages %}
+          <div class="alert {{ message.tags }}  alert-dismissible fade show" role="alert">
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              {{ message | safe }}
+          </div>
+      
+        {% endfor %}
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card" style="border-radius: 15px;background: transparent;">
+              <div class="card-body p-5">
+                <h3 class="text-uppercase text-center text-white mb-2">Sign Up</h3>
+                <form method="post" action="/signup">
+                  {% csrf_token %}
+                   <div data-mdb-input-init class="form-outline mb-4">
+                        <input type="text" id="form4Example1" class="form-control" required name="name" />
+                        <label class="form-label" for="form4Example1">Name*</label>
+                   </div>
+                   <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="email" id="form4Example2" class="form-control" required  name="email" />
+                     <label class="form-label" for="form4Example2">Email address*</label>
+                   </div>
+                
+  
+                   <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="password" name="pass1" id="form3Example4cg" class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example4cg">Password</label>
+                  </div>
+  
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="password" name="pass2" id="form3Example4cdg" class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                  </div>
+  
+  
+                  <div class="d-flex justify-content-center">
+                    <button type="submit"
+                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
+                  </div>
+  
+                  <p class="text-center bg-light text-muted mt-5 mb-0">Have already an account? <a href="/signin"
+                      class="fw-bold text-body"><u class="text-reset">Login here</u></a></p>
+  
+                </form>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+</div>
+
+<div class="mt-5"></div>
+{% endblock header %}

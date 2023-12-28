@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display&family=Sevillana&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display&family=Sevillana&display=swap"
+    rel="stylesheet">
   <!-- Css Styles -->
   <link rel="stylesheet" href="{% static 'css/mdb.min.css' %} " />
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
@@ -26,30 +27,29 @@
   <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 
   <style>
-     body {
+    body {
       --sb-track-color: #e4e8ea;
       --sb-thumb-color: #08a99e;
       --sb-size: 9px;
-    
-      scrollbar-color: var(--sb-thumb-color) 
-                       var(--sb-track-color);
+
+      scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
     }
-    
+
     body::-webkit-scrollbar {
-      width: var(--sb-size) 
+      width: var(--sb-size)
     }
-    
+
     body::-webkit-scrollbar-track {
       background: var(--sb-track-color);
       border-radius: 13px;
     }
-    
+
     body::-webkit-scrollbar-thumb {
       background: var(--sb-thumb-color);
       border-radius: 13px;
-      
-      }
-  
+
+    }
+
     .navlink {
       position: relative;
       display: inline-block;
@@ -62,9 +62,11 @@
       text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
       font-size: .8rem
     }
-    .pf{
+
+    .pf {
       font-family: 'Playfair Display', serif;
     }
+
     .navbar-scrolled {
       background-color: rgba(0, 0, 0, 0.8) !important;
       transition: background-color 0.3s ease;
@@ -73,7 +75,7 @@
     nav navlink:hover,
     nav navlink:focus {
       outline: none;
-      
+
     }
 
 
@@ -140,10 +142,12 @@
       color: #08a99e !important;
       /* Replace with your default color */
     }
-    .footerli li a:hover{
+
+    .footerli li a:hover {
       color: #08a99e !important;
       transition: 0.3s ease;
     }
+
     .social-icons-foot a:hover {
       color: white;
       box-shadow: 0px 0px 10px #08a99e !important;
@@ -163,10 +167,12 @@
         background-color: #000 !important;
         /* Replace with your custom color */
       }
-      .form-cont{
-        width:80% !important;
+
+      .form-cont {
+        width: 80% !important;
       }
     }
+
     .float {
       position: fixed;
       width: 60px;
@@ -184,7 +190,8 @@
 
     .my-float {
       margin-top: 16px;
-    }  
+    }
+
     .float1 {
       position: fixed;
       width: 60px;
@@ -202,78 +209,87 @@
     .my-float {
       margin-top: 16px;
     }
- 
-  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
-  .btn1 a{
-     font-family: Prata;
-  font-weight: 600;
-  font-size: 14px;
-  color: #000000;
-  }
-  .btn1{
-  
-  font-family: Prata;
-  font-weight: 600;
-  font-size: 14px;
-  color: #fff;
-  background-color: #08a99e;
-  padding: 5px 30px;
-  border: solid #08a99e 2px;
-  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
-  border-radius: 50px;
-  transition : 480ms;
-  transform: translateY(0);
-  display: flex;
-  flex-direction:row-reverse;
-  align-items: center;
-  cursor: pointer;
-  }
-  .btn1:hover{
-  
-  transition : 480ms;
-  padding: 10px 30px;
-  transform : translateY(-5px);
-  background-color: #e4e8ea;
-  color: #0066cc;
-  border: solid 2px #0066cc;
-  }
-  .testimonial-card .card-up {
-    height: 120px;
-    overflow: hidden;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
-  }
-  .testimonial-card .avatar {
-    width: 110px;
-    margin-top: -60px;
-    overflow: hidden;
-    border: 3px solid #fff;
-    border-radius: 50%;
-  }
-  .card{
-    height:600px !important; 
-  }
-  #scrollingRow {
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    scroll-behavior: smooth;
-    --sb-track-color: #e4e8ea;
-    --sb-thumb-color: #08a99e;
-    --sb-size: 4px;
-  }
-  #scrollingRow::-webkit-scrollbar {
-    width: var(--sb-size);
-  }
 
-  #scrollingRow::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
-    border-radius: 13px;
-  }
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
 
-  #scrollingRow::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: 13px;
-  }
+    .btn1 a {
+      font-family: Prata;
+      font-weight: 600;
+      font-size: 14px;
+      color: #000000;
+    }
+
+    .btn1 {
+
+      font-family: Prata;
+      font-weight: 600;
+      font-size: 14px;
+      color: #fff;
+      background-color: #08a99e;
+      padding: 5px 30px;
+      border: solid #08a99e 2px;
+      box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+      border-radius: 50px;
+      transition: 480ms;
+      transform: translateY(0);
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .btn1:hover {
+
+      transition: 480ms;
+      padding: 10px 30px;
+      transform: translateY(-5px);
+      background-color: #e4e8ea;
+      color: #0066cc;
+      border: solid 2px #0066cc;
+    }
+
+    .testimonial-card .card-up {
+      height: 120px;
+      overflow: hidden;
+      border-top-left-radius: 0.25rem;
+      border-top-right-radius: 0.25rem;
+    }
+
+    .testimonial-card .avatar {
+      width: 110px;
+      margin-top: -60px;
+      overflow: hidden;
+      border: 3px solid #fff;
+      border-radius: 50%;
+    }
+
+    .card {
+      height: 600px !important;
+    }
+
+    #scrollingRow {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scroll-behavior: smooth;
+      --sb-track-color: #e4e8ea;
+      --sb-thumb-color: #08a99e;
+      --sb-size: 4px;
+    }
+
+    #scrollingRow::-webkit-scrollbar {
+      width: var(--sb-size);
+    }
+
+    #scrollingRow::-webkit-scrollbar-track {
+      background: var(--sb-track-color);
+      border-radius: 13px;
+    }
+
+    #scrollingRow::-webkit-scrollbar-thumb {
+      background: var(--sb-thumb-color);
+      border-radius: 13px;
+    }
+
   </style>
 </head>
 
@@ -367,38 +383,39 @@
               </ul>
             </li>
           </ul>
-          {% comment %} {% if user.is_authenticated %}
-          <a class="text-white cl-effect-7" href="#">
+          {% if user.is_authenticated %}
+          <a class="text-white cl-effect-7" href="/logouthandle">
             Logout
           </a>
-          {% else %} {% endcomment %}
-          <a class="text-white" href="#">
-            Sign In
+          {% else %}
+          <a class="text-white btn1 btn-primary" href="/signin">
+            Sign in
           </a>
-          {% comment %} {% endif %} {% endcomment %}
+          {% endif %}
         </div>
         <!-- Right elements -->
       </div>
       <!-- Container wrapper -->
     </nav>
     <div id="searchBox" class="position-fixed end-0 end-0 p-3 bg-light"
-    style="display: none; width: 350px; top: 60px; z-index: 10000">
-    <div class="input-group">
-      <input type="text" class="form-control me-2" placeholder="Search..." />
-      <button class="btn btn-outline-secondary" type="button">
-        <a href="/search"><i class="fas fa-search"></i></a>
-      </button>
-      <button class="btn btn-outline-secondary" type="button" onclick="toggleSearchBox()">
-        <i class="fas fa-times"></i>
-      </button>
+      style="display: none; width: 350px; top: 60px; z-index: 10000">
+      <div class="input-group">
+        <input type="text" class="form-control me-2" placeholder="Search..." />
+        <button class="btn btn-outline-secondary" type="button">
+          <a href="/search"><i class="fas fa-search"></i></a>
+        </button>
+        <button class="btn btn-outline-secondary" type="button" onclick="toggleSearchBox()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
     </div>
-  </div>
     <!-- Navbar -->
+
     {% block header %}
 
     {% endblock header %}
   </header>
- 
+
   {% block content %}
 
   {% endblock content %}
@@ -421,8 +438,6 @@
 
         </div>
         <!--Grid column-->
-
-
 
         <!--Grid column-->
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
@@ -460,15 +475,17 @@
               <p><i class="fas fa-map-marker-alt pe-2"></i>&nbsp;&nbsp; Lahore, Pakistan</p>
             </li>
             <li>
-                <p><i class="fas fa-phone pe-2"></i>
-                  <a href="tel:03154419916">+92 315 4419916</a></p>
-              
+              <p><i class="fas fa-phone pe-2"></i>
+                <a href="tel:03154419916">+92 315 4419916</a>
+              </p>
+
             </li>
             <li>
-                <p><i class="fas fa-envelope pe-2 mb-0"></i>
-                  
-              <a href="mailto:ujalaarslan2021@icloud.com">ujalaarslan2021@icloud.com </a></p>
-             
+              <p><i class="fas fa-envelope pe-2 mb-0"></i>
+
+                <a href="mailto:ujalaarslan2021@icloud.com">ujalaarslan2021@icloud.com </a>
+              </p>
+
             </li>
           </ul>
           <div class="d-flex mt-5 social-icons-foot">
@@ -478,12 +495,13 @@
               role="button"><span class="fab fa-instagram smi"></span></a>
             <a class="btn" style="border: 2px solid #08a99e;transform: rotate(45deg);margin: 0px 10px;" href="#!"
               role="button"><span class="fab fa-linkedin smi"></span></a>
-            <a class="btn" style="border: 2px solid #08a99e;transform: rotate(45deg);margin: 0px 10px;" href="https://wa.me/+923154419916?text=Your Message :" target="_blank"
-              role="button"><span class="fab fa-whatsapp smi"></span></a>
+            <a class="btn" style="border: 2px solid #08a99e;transform: rotate(45deg);margin: 0px 10px;"
+              href="https://wa.me/+923154419916?text=Your Message :" target="_blank" role="button"><span
+                class="fab fa-whatsapp smi"></span></a>
           </div>
         </div>
         <!--Grid column-->
-      
+
       </div>
       <!--Grid row-->
     </div>
@@ -523,33 +541,38 @@
       searchBox.style.display = (searchBox.style.display === 'none' || searchBox.style.display === '') ? 'block' : 'none';
     }
     function scrollToLeft(elementId) {
-    const scrollingRow = document.getElementById(elementId);
-    scrollingRow.scrollLeft -= 415; // Adjust the scroll amount as needed
-  }
+      const scrollingRow = document.getElementById(elementId);
+      scrollingRow.scrollLeft -= 415; // Adjust the scroll amount as needed
+    }
 
-  function scrollToRight(elementId) {
-    const scrollingRow = document.getElementById(elementId);
-    scrollingRow.scrollLeft += 415; // Adjust the scroll amount as needed
-  }
-  function scrollDown() {
-    // Get the current vertical scroll position
-    var currentPosition = window.scrollY || document.documentElement.scrollTop;
+    function scrollToRight(elementId) {
+      const scrollingRow = document.getElementById(elementId);
+      scrollingRow.scrollLeft += 415; // Adjust the scroll amount as needed
+    }
+    function scrollDown() {
+      // Get the current vertical scroll position
+      var currentPosition = window.scrollY || document.documentElement.scrollTop;
 
-    // Set the target scroll position (e.g., scroll down by 500 pixels)
-    var targetPosition = currentPosition + 600;
+      // Set the target scroll position (e.g., scroll down by 500 pixels)
+      var targetPosition = currentPosition + 600;
 
-    // Scroll to the target position smoothly
-    window.scrollTo({
+      // Scroll to the target position smoothly
+      window.scrollTo({
         top: targetPosition,
         behavior: 'smooth'
-    });
-}
+      });
+    }
   </script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 </body>
 

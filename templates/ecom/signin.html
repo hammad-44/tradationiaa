@@ -1,0 +1,64 @@
+{% extends 'ecom/homebase.html' %}
+{% load static %}
+{% block title %}Sign in{% endblock title %}
+{% block header %}
+ <div id="intro" class="bg-image" style="
+  background-image: url({% static 'images/heroimg.png' %});
+
+  height: 90vh;
+  ">
+  <div class="mask text-white py-5" style="background-color: rgba(0, 0, 0, 0.7)">
+    <section class="vh-100 bg-image">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+      <div class="container mt-5 h-100">
+        {% for message in messages %}
+        <div class="alert {{ message.tags }}  alert-dismissible fade show" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            {{ message | safe }}
+        </div>
+    
+      {% endfor %}
+        <div class="row d-flex justify-content-center align-items-center">
+          <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <div class="card mt-5" style="border-radius: 15px;background: transparent;">
+              <div class="card-body p-5">
+                <h3 class="text-uppercase text-center text-white mb-2">Login</h3>
+                <form action="/signin" method="post" class="my-auto d-flex flex-column justify-content-center">
+                  {% csrf_token %}
+                   <div data-mdb-input-init class="form-outline mb-4">
+                    <input type="email" id="form4Example2" class="form-control" required  name="email" />
+                     <label class="form-label" for="form4Example2">Email address*</label>
+                   </div>
+                
+  
+                   <div data-mdb-input-init class="form-outline mb-4">
+                    <input name="password" type="password" id="form3Example4cg" class="form-control form-control-lg" />
+                    <label class="form-label" for="form3Example4cg">Password</label>
+                  </div>
+ 
+  
+                  <div class="d-flex justify-content-center">
+                    <button type="submit"
+                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
+                  </div>
+  
+                  <p class="text-center bg-light text-muted mt-5 mb-0">Don't Have an account? <a href="/signup"
+                      class="fw-bold text-body"><u class="text-reset"> Signup here</u></a></p>
+  
+                </form>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+</div>
+
+<div class="mt-5"></div>
+<div class="mt-5"></div>
+<div class="mt-5"></div>
+<div class="mt-5"></div>
+{% endblock header %}

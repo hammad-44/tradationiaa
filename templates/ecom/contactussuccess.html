@@ -1,43 +1,24 @@
-<!DOCTYPE html>
+{% extends 'ecom/homebase.html' %}
 {% load static %}
-<html lang="en" dir="ltr">
+{% block title %}About us{% endblock title %}
+{% block header %}
+ <div id="intro" class="bg-image" style="
+  background-image: url({% static 'images/heroimg.png' %});
+  opacity:200;
+  height: 90vh;
+  ">
+  <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.7)">
+    <div class="container d-flex align-items-center text-center h-100">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <h1 class="mb-2 pf">Message <span style="font-family: 'Sevillana', cursive;color:#08a99e">Sent</span> Successfully
+        </h1>
+        <p style="font-size:20px ">
+          We Will Get Back To You As Soon As Possible
+        </p>
+        <a href="/"><button class="btn1 btn-primary">Continue Shopping</button></a>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-
-  <title>Simple E-commerce</title>
-  <style media="screen">
-    .jumbotron {
-      margin-bottom: 0px;
-    }
-
-    .jumbotron h1 {
-      text-align: center;
-    }
-  </style>
-
-</head>
-
-<body style="background-color: #B3E5FC;">
-
-  {% include "ecom/navbar.html" %}
-  <br><br>
-  <div class="jumbotron">
-    <h1 class="display-4">Your message sent successfully !</h1>
-    <p class="lead">We will respond to your feedback soon</p>
-    <hr class="my-4">
-    <p>Check other features of website !</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="/" role="button">HOME</a>
-    </p>
+      </div>
+    </div>
   </div>
-
-  {% include "ecom/footer.html" %}
-</body>
-<!--
-developed By : sumit kumar
--->
-
-</html>
+</div>
+{% endblock header %}
