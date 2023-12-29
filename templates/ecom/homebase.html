@@ -262,12 +262,81 @@
       border: 3px solid #fff;
       border-radius: 50%;
     }
-
-    .card {
-      height: 600px !important;
+    #cartsec {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scroll-behavior: smooth;
+      --sb-track-color: #e4e8ea;
+      --sb-thumb-color: #08a99e;
+      --sb-size: 4px;
     }
 
+    #cartsec::-webkit-scrollbar {
+      width: var(--sb-size);
+    }
+
+    #cartsec::-webkit-scrollbar-track {
+      background: var(--sb-track-color);
+      border-radius: 13px;
+    }
+
+    #cartsec::-webkit-scrollbar-thumb {
+      background: var(--sb-thumb-color);
+      border-radius: 13px;
+    }
+     #cartsec {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scroll-behavior: smooth;
+      --sb-track-color: #e4e8ea;
+      --sb-thumb-color: #08a99e;
+      --sb-size: 14px;
+    }
+
+    #cartsec::-webkit-scrollbar {
+      width: var(--sb-size);
+    }
+
+    #cartsec::-webkit-scrollbar-track {
+      background: var(--sb-track-color);
+      border-radius: 13px;
+    }
+
+    #cartsec::-webkit-scrollbar-thumb {
+      background: var(--sb-thumb-color);
+      border-radius: 13px;
+    }
+    .card1 {
+      height: 600px !important;
+    }
+    @media (min-width: 1025px) {
+      .h-custom {
+      height: 100vh !important;
+      }
+      }
     #scrollingRow {
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      scroll-behavior: smooth;
+      --sb-track-color: #e4e8ea;
+      --sb-thumb-color: #08a99e;
+      --sb-size: 4px;
+    }
+
+    #scrollingRow::-webkit-scrollbar {
+      width: var(--sb-size);
+    }
+
+    #scrollingRow::-webkit-scrollbar-track {
+      background: var(--sb-track-color);
+      border-radius: 13px;
+    }
+
+    #scrollingRow::-webkit-scrollbar-thumb {
+      background: var(--sb-thumb-color);
+      border-radius: 13px;
+    }
+     #scrollingRow {
       overflow-x: auto;
       flex-wrap: nowrap;
       scroll-behavior: smooth;
@@ -434,7 +503,7 @@
 
         <div class="d-flex align-items-center">
           <!-- Icon -->
-          <a class="me-3" href="#">
+          <a class="me-3" href="/cart">
             <i style="color:white" class="fas fa-shopping-cart"></i>
           </a>
           <a class="text-reset me-3" href="#" onclick="toggleSearchBox()">
@@ -653,7 +722,7 @@
       var currentPosition = window.scrollY || document.documentElement.scrollTop;
 
       // Set the target scroll position (e.g., scroll down by 500 pixels)
-      var targetPosition = currentPosition + 600;
+      var targetPosition = currentPosition + 500;
 
       // Scroll to the target position smoothly
       window.scrollTo({
@@ -661,6 +730,43 @@
         behavior: 'smooth'
       });
     }
+     // Function to update total price and summary
+  function updateTotal() {
+    // Get quantity value
+    var quantity = document.getElementById("form4Example2").value;
+
+    // Update total price
+    var pricePerItem = 17.99; // Change this to the actual price per item
+    var totalPrice = quantity * pricePerItem;
+    document.getElementById("totalPrice").innerText = "$" + totalPrice.toFixed(2);
+
+    // Update summary
+    document.getElementById("summaryAmount").innerText = "$" + totalPrice.toFixed(2);
+  }
+
+  // Function to handle minus button click
+  function decreaseQuantity() {
+    var quantityInput = document.getElementById("form4Example2");
+    if (quantityInput.value > 0) {
+      quantityInput.stepDown();
+      updateTotal();
+    }
+  }
+
+  // Function to handle plus button click
+  function increaseQuantity() {
+    var quantityInput = document.getElementById("form4Example2");
+    quantityInput.stepUp();
+    updateTotal();
+  }
+
+  // Add event listeners to quantity input and buttons
+  document.getElementById("form4Example2").addEventListener("input", updateTotal);
+  document.getElementById("minusButton").addEventListener("click", decreaseQuantity);
+  document.getElementById("plusButton").addEventListener("click", increaseQuantity);
+
+  // Initial update on page load
+  updateTotal();
   </script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
