@@ -2,12 +2,9 @@
 from django.contrib import admin
 from django.urls import path
 from ecom import views
-from django.contrib.auth.views import LoginView,LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home_view,name=''),
-    path('afterlogin', views.afterlogin_view,name='afterlogin'),
-    path('logout', LogoutView.as_view(template_name='ecom/logout.html'),name='logout'),
     path('signin', views.handlelogin,name='signin'),
     path('signup', views.signup , name='signup'),
     path('about', views.aboutus_view),
