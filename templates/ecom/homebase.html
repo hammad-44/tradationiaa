@@ -810,42 +810,63 @@
       });
     }
     // Function to update total price and summary
-    function updateTotal() {
-      // Get quantity value
-      var quantity = document.getElementById("form4Example2").value;
+// Function to update total based on quantity
+function updateTotal(quantityInput) {
+    var pricePerItem = parseFloat(quantityInput.getAttribute("data-price"));
+    var quantity = parseInt(quantityInput.value);
+    var totalPrice = quantity * pricePerItem;
 
-      // Update total price
-      var pricePerItem = 17.99; // Change this to the actual price per item
-      var totalPrice = quantity * pricePerItem;
-      document.getElementById("totalPrice").innerText = "$" + totalPrice.toFixed(2);
+    // Update total price
+    var totalElement = quantityInput.closest(".row").querySelector(".totalPrice");
+    totalElement.innerText = "" + totalPrice.toFixed(2);
 
-      // Update summary
-      document.getElementById("summaryAmount").innerText = "$" + totalPrice.toFixed(2);
-    }
+    // Update summary (you might need to adjust this based on your HTML structure)
+    var summaryAmount = document.querySelector(".summaryAmount");
+    var totalAmount = Array.from(document.querySelectorAll(".totalPrice"))
+                        .reduce((total, element) => total + parseFloat(element.innerText.replace("", '')), 0);
+    summaryAmount.innerText = "" + totalAmount.toFixed(2);
+}
 
-    // Function to handle minus button click
-    function decreaseQuantity() {
-      var quantityInput = document.getElementById("form4Example2");
-      if (quantityInput.value > 0) {
+// Function to handle minus button click
+function decreaseQuantity(button) {
+    var quantityInput = button.closest(".row").querySelector(".quantityInput");
+    if (quantityInput.value > 0) {
         quantityInput.stepDown();
-        updateTotal();
-      }
+        updateTotal(quantityInput);
     }
+}
 
-    // Function to handle plus button click
-    function increaseQuantity() {
-      var quantityInput = document.getElementById("form4Example2");
-      quantityInput.stepUp();
-      updateTotal();
-    }
+// Function to handle plus button click
+function increaseQuantity(button) {
+    var quantityInput = button.closest(".row").querySelector(".quantityInput");
+    quantityInput.stepUp();
+    updateTotal(quantityInput);
+}
 
-    // Add event listeners to quantity input and buttons
-    document.getElementById("form4Example2").addEventListener("input", updateTotal);
-    document.getElementById("minusButton").addEventListener("click", decreaseQuantity);
-    document.getElementById("plusButton").addEventListener("click", increaseQuantity);
+// Add event listeners to quantity inputs and buttons
+document.querySelectorAll(".quantityInput").forEach(function (input) {
+    input.addEventListener("input", function () {
+        updateTotal(this);
+    });
+});
 
-    // Initial update on page load
-    updateTotal();
+document.querySelectorAll(".minusButton").forEach(function (button) {
+    button.addEventListener("click", function () {
+        decreaseQuantity(this);
+    });
+});
+
+document.querySelectorAll(".plusButton").forEach(function (button) {
+    button.addEventListener("click", function () {
+        increaseQuantity(this);
+    });
+});
+
+// Initial update on page load for each product
+document.querySelectorAll(".quantityInput").forEach(function (input) {
+    updateTotal(input);
+});
+
   </script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

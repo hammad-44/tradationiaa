@@ -42,6 +42,13 @@
 <section style="background-color: #eee;">
   <div class="text-center container py-5">
     <h2 class="mt-4 mb-5 display-5 pf">OUR PRODUCTS</h2>
+    {% for message in messages %}
+        <div class="alert {{ message.tags }}  alert-dismissible fade show" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            {{ message | safe }}
+        </div>
+    
+      {% endfor %}
     <div class="d-flex align-items-center justify-content-center">
     <div class="righticon me-2 me-md-4 " style="
         background: #08a99e;
@@ -51,7 +58,6 @@
        <i style="font-size:30px" class="fa-solid fa-chevron-left" onclick="scrollToLeft('scrollingRow')"></i>
        </div>
     <div class="row" id="scrollingRow" style="overflow-x: auto; flex-wrap: nowrap;">
-
       {% for product in products %}
       <div class="col-lg-4 col-md-12 mb-4">
         <div class="card card1">
@@ -59,9 +65,9 @@
           height: 400px;
         "
             data-mdb-ripple-color="light">
-            <img src="{{product.product_image}}"
+            <img src="{{product.product_image}}"  alt="{{ product.name }} Image"
              />
-            <a href="#!">
+            <a href="/productdetails/{{ product.id }}">
               <div class="hover-overlay">
                 <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
               </div>
@@ -72,10 +78,10 @@
               <h5 class="card-title mb-3">{{product.name}}</h5>
             </a>
             <a href="" class="text-reset">
-              <p>{{ product.description|wordcount|slice:":20"|safe }}</p>
+              <p>{{ product.description|slice:":40"|safe }}</p>
             </a>
             <h6 class="mb-3"><strong>{{product.price}}</strong></h6>
-            <a href="#"><button class="btn1 btn-primary">Add to Cart</button></a>
+            <a href="/add-to-cart/{{ product.id }}"><button class="btn1 btn-primary">Add to Cart</button></a>
           </div>
         </div>
       </div>

@@ -226,7 +226,6 @@ def add_to_cart_view(request,pk):
 
     product=models.Product.objects.get(id=pk)
     messages.info(request, product.name + ' added to cart successfully!')
-
     return response
 
 
@@ -293,8 +292,9 @@ def remove_from_cart_view(request,pk):
 def checkout(request):
     return render(request,'ecom/checkout.html')
 
-def productdetails(request):
-    return render(request, 'ecom/productdetails.html')
+def productdetails(request,pk):
+    product= models.Product.objects.filter(id=pk).first()
+    return render(request, 'ecom/productdetails.html', {"product" : product})
 
 
 def aboutus_view(request):

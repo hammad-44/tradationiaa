@@ -24,7 +24,7 @@
     <div class="row">
         <div class="col-md-5 ">
             <div class="main-img">
-                <img class="img-fluid" src="https://i.pinimg.com/736x/7b/d2/02/7bd202568e5c7e6d2fb2d829cec39635.jpg"alt="ProductS">
+                <img class="img-fluid" src="{{product.product_image}}"alt="ProductS">
               
             </div>
         </div>
@@ -32,12 +32,12 @@
             <div class="main-description px-2">
 
                 <div class="product-title pf text-bold my-3">
-                   <strong> Red Bridal Dress</strong>
+                   <strong>{{product.name}}</strong>
                 </div>
 
 
                 <div class="price-area my-4">
-                    <p class="old-price mb-1"><span class="old-price-discount text-danger">$100</span></p>
+                    <p class="old-price mb-1"><span class="old-price-discount text-danger">{{product.price}}</span></p>
               
 
                 </div>
@@ -45,12 +45,8 @@
 
                 <div class="buttons d-flex my-5">
                     <div class="block">
-                        <button class="shadow btn1 me-4 custom-btn">Add to cart</button>
+                        <button class="shadow btn1 me-4 custom-btn"><a href="/add-to-cart/{{product.id}}">Add to cart</button>
                     </div>
-
-                    <div class="block quantity">
-                        <input type="number" class="form-control" id="cart_quantity" value="1" min="0" max="5" placeholder="Enter email" name="cart_quantity">
-                    </div> 
                 </div>
 
 
@@ -60,9 +56,9 @@
 
             <div class="product-details my-4">
                 <p class="details-title text-color mb-1"><strong>Available Sizes</strong></p>
-                <p class="description">M, L, XL, XXL</p>
+                <p class="description">{{product.sizes}}</p>
                 <p class="details-title text-color mb-1"><strong>Product Description</strong></p>
-                <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat excepturi odio recusandae aliquid ad impedit autem commodi earum voluptatem laboriosam? </p>
+                <p class="description">{{product.description}}</p>
             </div>
           
                      <div class="row questions bg-light p-3">
