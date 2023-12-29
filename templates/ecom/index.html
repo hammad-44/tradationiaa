@@ -1,7 +1,6 @@
 {% extends 'ecom/homebase.html' %}
 {% load static %}
 {% block title %}Home{% endblock title %}
-
 {% block header %}
  <div id="intro" class="bg-image" style="
   background-image: url({% static 'images/heroimg.png' %});
@@ -48,18 +47,19 @@
         background: #08a99e;
         padding: 5px;
         z-index: 10000;
-    ">
+      ">
        <i style="font-size:30px" class="fa-solid fa-chevron-left" onclick="scrollToLeft('scrollingRow')"></i>
-  </div>
+       </div>
     <div class="row" id="scrollingRow" style="overflow-x: auto; flex-wrap: nowrap;">
 
+      {% for product in products %}
       <div class="col-lg-4 col-md-12 mb-4">
         <div class="card card1">
           <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" style="
           height: 400px;
         "
             data-mdb-ripple-color="light">
-            <img src="https://i.pinimg.com/736x/7b/d2/02/7bd202568e5c7e6d2fb2d829cec39635.jpg"
+            <img src="{{product.product_image}}"
              />
             <a href="#!">
               <div class="hover-overlay">
@@ -69,152 +69,18 @@
           </div>
           <div class="card-body">
             <a href="" class="text-reset">
-              <h5 class="card-title mb-3">Red Bridal Dress</h5>
+              <h5 class="card-title mb-3">{{product.name}}</h5>
             </a>
             <a href="" class="text-reset">
-              <p>Can be Customized</p>
+              <p>{{ product.description|wordcount|slice:":20"|safe }}</p>
             </a>
-            <h6 class="mb-3"><strong>20,000 RS</strong></h6>
+            <h6 class="mb-3"><strong>{{product.price}}</strong></h6>
             <a href="#"><button class="btn1 btn-primary">Add to Cart</button></a>
           </div>
         </div>
       </div>
-
-      <div class="col-lg-4 col-md-12 mb-4">
-        <div class="card card1">
-          <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" style="
-          height: 400px;
-        "
-            data-mdb-ripple-color="light">
-            <img src="https://i.pinimg.com/736x/7b/d2/02/7bd202568e5c7e6d2fb2d829cec39635.jpg"
-             />
-            <a href="#!">
-              <div class="hover-overlay">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </div>
-            </a>
-          </div>
-          <div class="card-body">
-            <a href="" class="text-reset">
-              <h5 class="card-title mb-3">Red Bridal Dress</h5>
-            </a>
-            <a href="" class="text-reset">
-              <p>Can be Customized</p>
-            </a>
-            <h6 class="mb-3"><strong>20,000 RS</strong></h6>
-            <a href="#"><button class="btn1 btn-primary">Add to Cart</button></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-12 mb-4">
-        <div class="card card1">
-          <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" style="
-          height: 400px;
-        "
-            data-mdb-ripple-color="light">
-            <img src="https://i.pinimg.com/736x/7b/d2/02/7bd202568e5c7e6d2fb2d829cec39635.jpg"
-             />
-            <a href="#!">
-              <div class="hover-overlay">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </div>
-            </a>
-          </div>
-          <div class="card-body">
-            <a href="" class="text-reset">
-              <h5 class="card-title mb-3">Red Bridal Dress</h5>
-            </a>
-            <a href="" class="text-reset">
-              <p>Can be Customized</p>
-            </a>
-            <h6 class="mb-3"><strong>20,000 RS</strong></h6>
-            <a href="#"><button class="btn1 btn-primary">Add to Cart</button></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-12 mb-4">
-        <div class="card card1">
-          <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" style="
-          height: 400px;
-        "
-            data-mdb-ripple-color="light">
-            <img src="https://i.pinimg.com/736x/7b/d2/02/7bd202568e5c7e6d2fb2d829cec39635.jpg"
-             />
-            <a href="#!">
-              <div class="hover-overlay">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </div>
-            </a>
-          </div>
-          <div class="card-body">
-            <a href="" class="text-reset">
-              <h5 class="card-title mb-3">Red Bridal Dress</h5>
-            </a>
-            <a href="" class="text-reset">
-              <p>Can be Customized</p>
-            </a>
-            <h6 class="mb-3"><strong>20,000 RS</strong></h6>
-            <a href="#"><button class="btn1 btn-primary">Add to Cart</button></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-12 mb-4">
-        <div class="card card1">
-          <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" style="
-          height: 400px;
-        "
-            data-mdb-ripple-color="light">
-            <img src="https://i.pinimg.com/736x/7b/d2/02/7bd202568e5c7e6d2fb2d829cec39635.jpg"
-             />
-            <a href="#!">
-              <div class="hover-overlay">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </div>
-            </a>
-          </div>
-          <div class="card-body">
-            <a href="" class="text-reset">
-              <h5 class="card-title mb-3">Red Bridal Dress</h5>
-            </a>
-            <a href="" class="text-reset">
-              <p>Can be Customized</p>
-            </a>
-            <h6 class="mb-3"><strong>20,000 RS</strong></h6>
-            <a href="#"><button class="btn1 btn-primary">Add to Cart</button></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-12 mb-4">
-        <div class="card card1">
-          <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" style="
-          height: 400px;
-        "
-            data-mdb-ripple-color="light">
-            <img src="https://i.pinimg.com/736x/7b/d2/02/7bd202568e5c7e6d2fb2d829cec39635.jpg"
-             />
-            <a href="#!">
-              <div class="hover-overlay">
-                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-              </div>
-            </a>
-          </div>
-          <div class="card-body">
-            <a href="" class="text-reset">
-              <h5 class="card-title mb-3">Red Bridal Dress</h5>
-            </a>
-            <a href="" class="text-reset">
-              <p>Can be Customized</p>
-            </a>
-            <h6 class="mb-3"><strong>20,000 RS</strong></h6>
-            <a href="#"><button class="btn1 btn-primary">Add to Cart</button></a>
-          </div>
-        </div>
-      </div>
-    
+      {% endfor %}
+      
     </div>
     <div class="righticon ms-2 ms-md-4" style="
           background: #08a99e;
