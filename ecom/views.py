@@ -23,35 +23,6 @@ def home_view(request):
     return render(request,'ecom/index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
 
 
-#for showing login button for admin(by sumit)
-def adminclick_view(request):
-    if request.user.is_authenticated:
-        return HttpResponseRedirect('afterlogin')
-    return HttpResponseRedirect('adminlogin')
-
-
-# def customer_signup_view(request):
-#     userForm=forms.CustomerUserForm()
-#     customerForm=forms.CustomerForm()
-#     mydict={'userForm':userForm,'customerForm':customerForm}
-#     if request.method=='POST':
-#         userForm=forms.CustomerUserForm(request.POST)
-#         customerForm=forms.CustomerForm(request.POST,request.FILES)
-#         if userForm.is_valid() and customerForm.is_valid():
-#             user=userForm.save()
-#             user.set_password(user.password)
-#             user.save()
-#             customer=customerForm.save(commit=False)
-#             customer.user=user
-#             customer.save()
-#             my_customer_group = Group.objects.get_or_create(name='CUSTOMER')
-#             my_customer_group[0].user_set.add(user)
-#         return HttpResponseRedirect('customerlogin')
-#     return render(request,'ecom/customersignup.html',context=mydict)
-
-#-----------for checking user iscustomer
-def is_customer(user):
-    return user.groups.filter(name='CUSTOMER').exists()
 
 def logouthandle(request):
     logout(request)
@@ -106,40 +77,7 @@ def signup(request):
         return redirect('/signin')  # Adjust the URL for the home page
 
     return render(request, 'ecom/signup.html')
-#---------AFTER ENTERING CREDENTIALS WE CHECK WHETHER USERNAME AND PASSWORD IS OF ADMIN,CUSTOMER
-def afterlogin_view(request):
-    if is_customer(request.user):
-        return redirect('customer-home')
-    else:
-        return redirect('admin-dashboard')
 
-#---------------------------------------------------------------------------------
-#------------------------ ADMIN RELATED VIEWS START ------------------------------
-#---------------------------------------------------------------------------------
-@login_required(login_url='adminlogin')
-def admin_dashboard_view(request):
-    # for cards on dashboard
-    customercount=models.Customer.objects.all().count()
-    productcount=models.Product.objects.all().count()
-    ordercount=models.Orders.objects.all().count()
-
-    # for recent order tables
-    orders=models.Orders.objects.all()
-    ordered_products=[]
-    ordered_bys=[]
-    for order in orders:
-        ordered_product=models.Product.objects.all().filter(id=order.product.id)
-        ordered_by=models.Customer.objects.all().filter(id = order.customer.id)
-        ordered_products.append(ordered_product)
-        ordered_bys.append(ordered_by)
-
-    mydict={
-    'customercount':customercount,
-    'productcount':productcount,
-    'ordercount':ordercount,
-    'data':zip(ordered_products,ordered_bys,orders),
-    }
-    return render(request,'ecom/admin_dashboard.html',context=mydict)
 
 
 
