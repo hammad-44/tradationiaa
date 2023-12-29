@@ -19,11 +19,11 @@
           </div>
       
         {% endfor %}
-        <div class="row d-flex justify-content-center align-items-center">
+        <div class="row pt-2 d-flex justify-content-center align-items-center">
           <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-            <div class="card" style="border-radius: 15px;background: transparent;">
+            <div class="card"  style="border-radius: 15px;">
               <div class="card-body p-5">
-                <h3 class="text-uppercase text-center text-white mb-2">Sign Up</h3>
+                <h3 class="text-uppercase text-center text-reset mb-2">Sign Up</h3>
                 <form method="post" action="/signup">
                   {% csrf_token %}
                    <div data-mdb-input-init class="form-outline mb-4">
@@ -52,7 +52,7 @@
                       class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                   </div>
   
-                  <p class="text-center bg-light text-muted mt-5 mb-0">Have already an account? <a href="/signin"
+                  <p class="text-center bg-light text-muted mt-2 mb-0">Have already an account? <a href="/signin"
                       class="fw-bold text-body"><u class="text-reset">Login here</u></a></p>
   
                 </form>
