@@ -80,7 +80,6 @@ def handlelogin(request):
     else:
         return render(request, 'ecom/signin.html')
 
-
 def signup(request):
     if request.method == "POST":
         email = request.POST['email']
@@ -89,27 +88,25 @@ def signup(request):
         pass2 = request.POST['pass2']
         username = email
 
-        # Password validation
+        if User.objects.filter(email=email).exists():
+            messages.error(request, "User with this Email already exists")
+            return redirect('/signup') 
         try:
             validate_password(pass1, user=User)
         except ValidationError as e:
             messages.error(request, e.messages[0])
-            return redirect('/signup')  # Adjust the URL name for the signup page
-
+            return redirect('/signup')  
         if pass1 != pass2:
             messages.error(request, "Passwords do not match")
-            return redirect('/signup')  # Adjust the URL name for the signup page
-
-        # Create the user
+            return redirect('/signup')  
         myuser = User.objects.create_user(username, email, pass1)
         myuser.first_name = fname
         myuser.save()
 
         messages.success(request, "Account created successfully")
-        return redirect('/')  # Adjust the URL for the home page
+        return redirect('/signin')  # Adjust the URL for the home page
 
-    return render(request, 'ecom/signup.html') 
-
+    return render(request, 'ecom/signup.html')
 #---------AFTER ENTERING CREDENTIALS WE CHECK WHETHER USERNAME AND PASSWORD IS OF ADMIN,CUSTOMER
 def afterlogin_view(request):
     if is_customer(request.user):
@@ -154,35 +151,11 @@ def admin_products_view(request):
     return render(request,'ecom/admin_products.html',{'products':products})
 
 
-# # admin add product by clicking on floating button
-# @login_required(login_url='admin')
-# def admin_add_product_view(request):
-#     productForm=forms.ProductForm()
-#     if request.method=='POST':
-#         productForm=forms.ProductForm(request.POST, request.FILES)
-#         if productForm.is_valid():
-#             productForm.save()
-#         return HttpResponseRedirect('admin-products')
-#     return render(request,'ecom/admin_add_products.html',{'productForm':productForm})
-
-
 @login_required(login_url='admin')
 def delete_product_view(request,pk):
     product=models.Product.objects.get(id=pk)
     product.delete()
     return redirect('admin-products')
-
-
-# @login_required(login_url='admin')
-# def update_product_view(request,pk):
-#     product=models.Product.objects.get(id=pk)
-#     productForm=forms.ProductForm(instance=product)
-#     if request.method=='POST':
-#         productForm=forms.ProductForm(request.POST,request.FILES,instance=product)
-#         if productForm.is_valid():
-#             productForm.save()
-#             return redirect('admin-products')
-#     return render(request,'ecom/admin_update_product.html',{'productForm':productForm})
 
 
 
