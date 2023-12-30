@@ -63,7 +63,7 @@
 
               <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                 <!-- Quantity -->
-                <div class="d-flex mb-4" style="max-width: 300px">
+                {% comment %} <div class="d-flex mb-4" style="max-width: 300px">
                   <button class="btn px-3 me-2 minusButton">
                     <i class="fas fa-minus"></i>
                   </button>
@@ -74,7 +74,7 @@
                   <button class="btn px-3 ms-2 plusButton">
                     <i class="fas fa-plus"></i>
                   </button>
-                </div>
+                </div> {% endcomment %}
                 <!-- Quantity -->
 
                 <!-- Price -->
@@ -122,13 +122,16 @@
                   <strong>
                   </strong>
                 </div>
-                <span class="summaryAmount"><strong>{{total}}</strong></span>
+                <span class="summaryAmount"><strong name="totalamout">{{total}}</strong></span>
               </li>
             </ul>
-
+            
             <button type="button" class="btn1 text-center btn-primary btn-lg">
-              <a href="/checkout">Go to checkout</a>
-            </button>
+              <a href="/checkout?cart_item_count={{cart_item_count}}&product={{products}}&total={{totalamout}}">
+                  Go to checkout
+              </a>
+          </button>
+          
           </div>
         </div>
       </div>

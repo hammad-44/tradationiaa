@@ -126,7 +126,7 @@ def add_to_cart_view(request, pk):
 
 @login_required
 def cart_view(request):
-    # Retrieve the CartItem objects for the current user
+   # Retrieve the CartItem objects for the current user
     cart_items = models.CartItem.objects.filter(user=request.user)
 
     # Get the product IDs from CartItem objects
@@ -161,7 +161,18 @@ def remove_from_cart_view(request,pk):
     return render(request, 'ecom/cart.html', {'products': products,'total': total, 'cart_item_count': cart_item_count})
 
 def checkout(request):
-    return render(request,'ecom/checkout.html')
+    cart_item_count = request.GET.get('cart_item_count')
+    cart_items= models.CartItem.objects.filter(user=request.user)
+    
+    # Get the product IDs from CartItem objects
+    product_ids = [item.product_id for item in cart_items]
+
+    # Retrieve the actual Product objects corresponding to the product IDs
+    products = models.Product.objects.filter(id__in=product_ids)
+    total = sum(item.product.price for item in cart_items)
+
+    context={"cart_item_count":cart_item_count,"products":products,"total":total}
+    return render(request, 'ecom/checkout.html',context)
 
 def productdetails(request,pk):
     product= models.Product.objects.filter(id=pk).first()
@@ -179,7 +190,6 @@ def search_view(request):
 def product(request):
     products = models.Product.objects.all()
     return render(request,"ecom/products.html",{"products": products})
-
 
 def aboutus_view(request):
     return render(request,'ecom/aboutus.html')
