@@ -1,0 +1,99 @@
+{% extends 'ecom/homebase.html' %}
+{% load static %}
+{% block title %}Products{% endblock title %}
+
+{% block header %}
+ <div id="intro" class="bg-image" style="
+  background-image: url({% static 'images/heroimg.png' %});
+  opacity:200;
+  height: 40vh;
+  ">
+  <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.7)">
+    <div class="container d-flex align-items-center justify-content-center text-center h-100">
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <h1 class="mb-2 pf">List <span style="font-family: 'Sevillana', cursive;color:#08a99e">of</span> Products
+        </h1>
+        <p style="font-size:20px ">
+        </p>
+        <a href="#"><button class="btn1 btn-primary" onclick="scrollDown()">Scroll Down</button></a>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock header %}
+
+{% block content %}
+
+<section style="background-color: #eee;">
+    <div class="text-center container py-5">
+      <h3 class="mt-4 mb-5"><strong>{% if query %}Search Results for {{query}} {% else %} Bridal Wears{% endif %}</strong></h3>
+  
+      <div class="row">
+        {% if query %}
+        {% if productsq %}
+        {% for product in productsq %}
+        <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card card1">
+              <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" style="
+              height: 400px;
+            "
+                data-mdb-ripple-color="light">
+                <img src="{{product.product_image}}"  alt="{{ product.name }} Image"
+                 />
+                <a href="/productdetails/{{ product.id }}">
+                  <div class="hover-overlay">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                  </div>
+                </a>
+              </div>
+              <div class="card-body">
+                <a href="/productdetails/{{ product.id }}" class="text-reset">
+                  <h5 class="card-title mb-3">{{product.name}}</h5>
+                </a>
+                <a href="/productdetails/{{ product.id }}" class="text-reset">
+                  <p>{{ product.description|slice:":40"|safe }}</p>
+                </a>
+                <h6 class="mb-3"><strong>{{product.price}}</strong></h6>
+                  <button class="btn1 btn-primary add-to-cart-btn" data-product-id="{{ product.id }}">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        {% else %}
+          <div class="container-fluid text-left"><h4>No Results Found For <strong>{{query}}</strong><h4></div>
+        {% endif %}
+        {% else %}
+        {% for product in products %}
+        <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card card1">
+              <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" style="
+              height: 400px;
+            "
+                data-mdb-ripple-color="light">
+                <img src="{{product.product_image}}"  alt="{{ product.name }} Image"
+                 />
+                <a href="/productdetails/{{ product.id }}">
+                  <div class="hover-overlay">
+                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                  </div>
+                </a>
+              </div>
+              <div class="card-body">
+                <a href="/productdetails/{{ product.id }}" class="text-reset">
+                  <h5 class="card-title mb-3">{{product.name}}</h5>
+                </a>
+                <a href="/productdetails/{{ product.id }}" class="text-reset">
+                  <p>{{ product.description|slice:":40"|safe }}</p>
+                </a>
+                <h6 class="mb-3"><strong>{{product.price}}</strong></h6>
+                  <button class="btn1 btn-primary add-to-cart-btn" data-product-id="{{ product.id }}">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+</section>
+{% endblock content %}

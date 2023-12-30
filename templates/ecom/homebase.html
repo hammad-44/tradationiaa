@@ -585,7 +585,7 @@
           <a class="me-3" href="/cart">
             <i style="color:white" class="fas fa-shopping-cart"></i>
           </a>
-          <a class="text-reset me-3" onclick="toggleSearchBox()">
+          <a class="text-reset me-3" style="cursor:pointer;" onclick="toggleSearchBox()">
             <i style="color: #bba178" class="fa-solid fa-magnifying-glass"></i>
           </a>
           <ul class="navbar-nav">
@@ -646,15 +646,15 @@
     </nav>
     <div id="searchBox" class="position-fixed end-0 end-0 p-3 bg-light"
       style="display: none; width: 350px; top: 60px; z-index: 10000">
-      <div class="input-group">
-        <input type="text" class="form-control me-2" placeholder="Search..." />
-        <button class="btn btn-outline-secondary" type="button">
-          <a href="/search"><i class="fas fa-search"></i></a>
+      <form method="get" action="/search" class="input-group">
+        <input type="text" name="searchinput" class="form-control me-2" placeholder="Search..." />
+        <button class="btn btn-outline-secondary" type="submit">
+          <a href="/search"><i class="fas fa-search cursor-pointer"></i></a>
         </button>
         <button class="btn btn-outline-secondary" type="button" onclick="toggleSearchBox()">
           <i class="fas fa-times"></i>
         </button>
-      </div>
+      </form>
     </div>
     <!-- Navbar -->
 

@@ -19,16 +19,12 @@ def home_view(request):
         product_count_in_cart=0
     return render(request,'ecom/index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
 
-
-
 def logouthandle(request):
     logout(request)
     return redirect('/')
 
-
 def user_not_authenticated(user):
     return not user.is_authenticated
-
 
 @user_passes_test(user_not_authenticated, login_url='/')
 def handlelogin(request):
@@ -75,23 +71,17 @@ def signup(request):
 
     return render(request, 'ecom/signup.html')
 
-
-
-
 # admin view the product
 @login_required(login_url='admin')
 def admin_products_view(request):
     products=models.Product.objects.all()
     return render(request,'ecom/admin_products.html',{'products':products})
 
-
 @login_required(login_url='admin')
 def delete_product_view(request,pk):
     product=models.Product.objects.get(id=pk)
     product.delete()
     return redirect('admin-products')
-
-
 
 def order(request):
     if request.method == "POST":
@@ -111,27 +101,6 @@ def order(request):
     
     return render(request, 'ecom/placeorder.html')
 
-
-#---------------------------------------------------------------------------------
-#------------------------ PUBLIC CUSTOMER RELATED VIEWS START ---------------------
-#---------------------------------------------------------------------------------
-def search_view(request):
-    # whatever user write in search box we get in query
-    query = request.GET['query']
-    products=models.Product.objects.all().filter(name__icontains=query)
-    if 'product_ids' in request.COOKIES:
-        product_ids = request.COOKIES['product_ids']
-        counter=product_ids.split('|')
-        product_count_in_cart=len(set(counter))
-    else:
-        product_count_in_cart=0
-
-    # word variable will be shown in html when user click on search button
-    word="Searched Result :"
-
-    if request.user.is_authenticated:
-        return render(request,'ecom/customer_home.html',{'products':products,'word':word,'product_count_in_cart':product_count_in_cart})
-    return render(request,'ecom/index.html',{'products':products,'word':word,'product_count_in_cart':product_count_in_cart})
 
 
 def add_to_cart_view(request, pk):
@@ -154,33 +123,6 @@ def add_to_cart_view(request, pk):
     }
 
     return JsonResponse(response_data)
-# def add_to_cart_view(request,pk):
-#     products=models.Product.objects.all()
-
-#     #for cart counter, fetching products ids added by customer from cookies
-#     if 'product_ids' in request.COOKIES:
-#         product_ids = request.COOKIES['product_ids']
-#         counter=product_ids.split('|')
-#         product_count_in_cart=len(set(counter))
-#     else:
-#         product_count_in_cart=1
-
-#     response = render(request, 'ecom/index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
-
-#     #adding product id to cookies
-#     if 'product_ids' in request.COOKIES:
-#         product_ids = request.COOKIES['product_ids']
-#         if product_ids=="":
-#             product_ids=str(pk)
-#         else:
-#             product_ids=product_ids+"|"+str(pk)
-#         response.set_cookie('product_ids', product_ids)
-#     else:
-#         response.set_cookie('product_ids', pk)
-
-#     product=models.Product.objects.get(id=pk)
-#     messages.info(request, product.name + ' added to cart successfully!')
-#     return response
 
 @login_required
 def cart_view(request):
@@ -218,46 +160,25 @@ def remove_from_cart_view(request,pk):
 
     return render(request, 'ecom/cart.html', {'products': products,'total': total, 'cart_item_count': cart_item_count})
 
-# def remove_from_cart_view(request,pk):
-#     #for counter in cart
-#     if 'product_ids' in request.COOKIES:
-#         product_ids = request.COOKIES['product_ids']
-#         counter=product_ids.split('|')
-#         product_count_in_cart=len(set(counter))
-#     else:
-#         product_count_in_cart=0
-
-#     # removing product id from cookie
-#     total=0
-#     if 'product_ids' in request.COOKIES:
-#         product_ids = request.COOKIES['product_ids']
-#         product_id_in_cart=product_ids.split('|')
-#         product_id_in_cart=list(set(product_id_in_cart))
-#         product_id_in_cart.remove(str(pk))
-#         products=models.Product.objects.all().filter(id__in = product_id_in_cart)
-#         #for total price shown in cart after removing product
-#         for p in products:
-#             total=total+p.price
-
-#         #  for update coookie value after removing product id in cart
-#         value=""
-#         for i in range(len(product_id_in_cart)):
-#             if i==0:
-#                 value=value+product_id_in_cart[0]
-#             else:
-#                 value=value+"|"+product_id_in_cart[i]
-#         response = render(request, 'ecom/cart.html',{'products':products,'total':total,'product_count_in_cart':product_count_in_cart})
-#         if value=="":
-#             response.delete_cookie('product_ids')
-#         response.set_cookie('product_ids',value)
-#         return response
-
 def checkout(request):
     return render(request,'ecom/checkout.html')
 
 def productdetails(request,pk):
     product= models.Product.objects.filter(id=pk).first()
     return render(request, 'ecom/productdetails.html', {"product" : product})
+
+
+def search_view(request):
+    query = request.GET.get('searchinput', '')  # Using get() to handle the case where 'query' is not present
+    productsq = models.Product.objects.filter(name__icontains=query)
+    print(productsq)
+    
+    context = {'productsq': productsq, 'query': query}
+    return render(request, 'ecom/products.html', context)
+
+def product(request):
+    products = models.Product.objects.all()
+    return render(request,"ecom/products.html",{"products": products})
 
 
 def aboutus_view(request):
