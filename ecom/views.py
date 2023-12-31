@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from . import models
 from django.contrib.auth.models import User 
-from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.contrib import messages
 from django.contrib.auth  import authenticate,  login, logout
@@ -104,6 +103,7 @@ def order(request):
 
 
 def add_to_cart_view(request, pk):
+    response_data={}
     if not request.user.is_authenticated:
         return redirect('/signin')
     try:
@@ -112,15 +112,14 @@ def add_to_cart_view(request, pk):
         return JsonResponse({'error': 'Product not found'}, status=404)
 
     # Check if the item is already in the cart
-    if models.CartItem .objects.filter(user=request.user, product=product).exists():
+    if models.CartItem.objects.filter(user=request.user, product=product).exists():
         return JsonResponse({'message': 'Product already in the cart'})
+    else:
+         models.CartItem.objects.create(user=request.user, product=product)
 
-    # Add the item to the cart
-    models.CartItem.objects.create(user=request.user, product=product)
-
-    response_data = {
-        'message': f'{product.name} added to cart successfully!',
-    }
+         response_data = {
+             'message': f'{product.name} added to cart successfully!',
+         }
 
     return JsonResponse(response_data)
 
@@ -161,6 +160,8 @@ def remove_from_cart_view(request,pk):
     return render(request, 'ecom/cart.html', {'products': products,'total': total, 'cart_item_count': cart_item_count})
 
 def checkout(request):
+
+    
     cart_item_count = request.GET.get('cart_item_count')
     cart_items= models.CartItem.objects.filter(user=request.user)
     
@@ -170,7 +171,20 @@ def checkout(request):
     # Retrieve the actual Product objects corresponding to the product IDs
     products = models.Product.objects.filter(id__in=product_ids)
     total = sum(item.product.price for item in cart_items)
-
+    product_names =  set(item.product.name for item in cart_items)
+   
+    if request.method=="POST":
+        firstname = request.POST['firstname']
+        lastname = request.POST['lastname']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        address = request.POST['address']
+        product_names_str = ', '.join(product_names)
+        order = models.Orders(firstname=firstname,lastname=lastname,email=email,phone=phone,address=address,total=total,products=product_names_str)
+        order.save()
+        cart_items.delete()
+        return render(request,'ecom/ordersuccess.html')
+    
     context={"cart_item_count":cart_item_count,"products":products,"total":total}
     return render(request, 'ecom/checkout.html',context)
 

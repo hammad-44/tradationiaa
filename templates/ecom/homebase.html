@@ -865,7 +865,8 @@ document.querySelectorAll(".quantityInput").forEach(function (input) {
 $(document).ready(function () {
   $(".add-to-cart-btn").on("click", function (event) {
       event.preventDefault();
-
+      var button = $(this);
+      button.prop('disabled', true);
       // Get the CSRF token from the cookie
       var csrftoken = getCookie('csrftoken');
 
@@ -893,6 +894,9 @@ $(document).ready(function () {
           }
       });
   });
+  setTimeout(function () {
+    button.prop('disabled', false);
+}, 2000);  
 });
 
 // Function to get the CSRF token from the cookie

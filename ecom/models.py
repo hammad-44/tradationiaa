@@ -29,6 +29,19 @@ class ServiceOrders(models.Model):
     def __str__(self):
         return f'From {self.name} For {self.service} On {self.order_time}'
 
+class Orders(models.Model):
+    firstname = models.CharField(max_length=50)
+    lastname = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    phone = models.CharField(max_length=50)
+    address = models.TextField()
+    total = models.PositiveIntegerField()
+    products = models.TextField()
+
+    def __str__(self):
+        return f'{self.firstname} - {self.total}'
+
+
 
 class CartItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

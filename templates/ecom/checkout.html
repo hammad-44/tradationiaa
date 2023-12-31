@@ -48,18 +48,25 @@
     </div>
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Billing address</h4>
-      <form class="needs-validation" novalidate>
+      {% for message in url_messages %}
+      <div class="alert {{ message.tags }}  alert-dismissible fade show" role="alert">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          {{ message | safe }}
+      </div>
+    {% endfor %}
+      <form  action="/checkout/" method="post">
+        {% csrf_token %}
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <input type="text" class="form-control" id="firstName" name="firstname" placeholder="" value="" required>
             <div class="invalid-feedback">
               Valid first name is required.
             </div>
           </div>
           <div class="col-md-6 mb-3">
             <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            <input type="text" class="form-control" id="lastName" name="lastname" placeholder="" value="" required>
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -67,23 +74,30 @@
         </div>
 
         <div class="mb-3">
-          <label for="email">Email <span class="text-muted">(Optional)</span></label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com">
+          <label for="email">Email <span class="text-muted"></span></label>
+          <input type="email" class="form-control" name="email" required id="email" placeholder="you@example.com">
           <div class="invalid-feedback">
             Please enter a valid email address for shipping updates.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="email">Phone <span class="text-muted"></span></label>
+          <input type="number" class="form-control" name="phone" required id="email" placeholder="+92-311-222-2234">
+          <div class="invalid-feedback">
+            Please Enter a valid Phone Number for Shipping Updates.
           </div>
         </div>
 
         <div class="mb-3">
           <label for="address">Address</label>
-          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+          <input type="text" class="form-control" name='address' id="address" placeholder="1234 Main St" required>
           <div class="invalid-feedback">
             Please enter your shipping address.
           </div>
         </div>
 
         <hr class="mb-4">
-
+{% comment %} 
         <h4 class="mb-3">Payment</h4>
 
         <div class="d-block my-3">
@@ -132,10 +146,37 @@
               Security code required
             </div>
           </div>
-        </div>
+        </div> {% endcomment %}
         <hr class="mb-4">
-        <button class="btn1 btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+        <button class="btn1 btn-primary btn-lg" type="submit">Continue to checkout</button>
       </form>
     </div>
   </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('checkoutForm').addEventListener('submit', function (event) {
+        if (!validateForm()) {
+            event.preventDefault();  // Prevent form submission
+            alert('Please fill out all required fields.');
+        }
+    });
+
+    function validateForm() {
+        var requiredFields = document.querySelectorAll('.needs-validation [required]');
+        var isValid = true;
+
+        requiredFields.forEach(function (field) {
+            if (!field.value.trim()) {
+                isValid = false;
+                field.classList.add('is-invalid');
+            } else {
+                field.classList.remove('is-invalid');
+            }
+        });
+
+        return isValid;
+    }
+});
+</script>
 {% endblock content %}
