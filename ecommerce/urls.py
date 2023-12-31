@@ -2,6 +2,13 @@
 from django.contrib import admin
 from django.urls import path
 from ecom import views
+
+admin.site.site_header="Traditioniaa Admin "
+admin.site.site_title="Traditioniaa Admins Panel"
+admin.site.index_title="Welcome to Traditioniaa Admin Panel"
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home_view,name=''),
