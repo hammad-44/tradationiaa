@@ -218,3 +218,10 @@ def contactus_view(request):
         return render(request, 'ecom/contactussuccess.html')
     
     return render(request, 'ecom/contactus.html')
+
+
+def privacypolicy(request):
+    return render(request,"ecom/privacypolicy.html")
+
+def returnpolicy(request):
+    return render(request,"ecom/returnpolicy.html")

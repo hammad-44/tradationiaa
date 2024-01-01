@@ -16,6 +16,8 @@ urlpatterns = [
     path('signup', views.signup , name='signup'),
     path('about', views.aboutus_view),
     path('contactus', views.contactus_view,name='contactus'),
+    path('privacypolicy', views.privacypolicy,name='privacypolicy'),
+    path('returnpolicy', views.returnpolicy,name='returnpolicy'),
     path('search', views.search_view,name='search'),
     path('logouthandle', views.logouthandle, name="logouthandle"),
     path('order', views.order, name="order"),
