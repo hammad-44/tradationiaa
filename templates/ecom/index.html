@@ -2,27 +2,20 @@
 {% load static %}
 {% block title %}Home{% endblock title %}
 {% block header %}
- <div id="intro" class="bg-image" style="
-  background-image: url({% static 'images/heroimg.jpg' %});
-  background-size:cover;
-  background-position: center;
-
-  opacity:200;
-  height: 90vh;
-  ">
-  <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.7)">
+<div id="intro" class="bg-image">
+  <div class="mask text-white">
     <div class="container d-flex align-items-center text-center h-100">
-      <div class="d-flex flex-column justify-content-center align-items-center">
-        <h1 class="mb-2 pf">TRADITIONIAA
-        </h1>
-        <p style="font-size:20px ">
-          From Measurements to Masterpiece: Redefine Your Wardrobe Effortlessly. Explore Our Online <span style="color:#08a99e">Stitching Service</span> and Step Into a World of Personalized Fashion That Fits You, Inside and Out.
+      <div class="d-flex flex-column justify-content-center align-items-center mx-auto">
+        <h2 class="mb-2 pf">TRADITIONIAA</h2>
+        <p style="font-size: 20px;">
+          Tradition is the illusion
+          of permanence.
         </p>
         <a href="/order"><button class="btn1 btn-primary">Place Your Order</button></a>
-
       </div>
     </div>
   </div>
+</div>
 </div>
 {% endblock header %}
 
@@ -113,32 +106,26 @@
     </div>
   </div>
 
-  <div class="container justify-content-center d-flex flex-column flex-md-row">
-    <div class="text-center px-xl-2">
+  <div class="container justify-content-center d-flex flex-column flex-lg-row flex-md-column">
+    <div class="col-lg-3 col-md-6 col-sm-12 text-center px-xl-2">
       <span class="fa fa-mouse-pointer" style="font-size:50px ;color:#00a99e !important;margin: 11% 0"></span>
       <h5 class="m-2 pf font-weight-bold" style="margin-bottom: 30px !important;">PLACE YOUR ORDER</h5>
-      <p class="m-0 text-secondary"><a href="/order">Place your order</a> online to book a stitch at your home or you can also place an order by visiting our workshop.</p>
+      <p class="m-0 text-secondary text-justify">International customers are advised to place orders on WhatsApp <a href="https://api.whatsapp.com/send?phone=923154419916">(+92 3154419916)</a> . The shipping charges will depend upon weight. Once you've confirmed the order, our customer support representative will let you know the shipping charges.</p>
     </div>
-    <div class="text-center px-xl-2">
-      <span class="fa fa-motorcycle" style="font-size:50px ;color:#00a99e !important;margin: 11% 0"></span>
-      <h5 class="m-2 pf font-weight-bold"style="margin-bottom: 30px !important;">PICKING YOUR SAMPLE DRESS
-      </h5>
-      <p class="m-0 text-secondary">The rider will come to pick your dress material along with the sample dress that fits you perfectly or hand over it on our workshop.</p>
-    </div>
-    <div class="text-center px-xl-2">
+    <div class="col-lg-3 col-md-6 col-sm-12 text-center px-xl-2">
       <span class="fa fa-scissors" style="font-size:50px ;color:#00a99e !important;margin: 11% 0"></span>
       <h5 class="m-2 pf font-weight-bold"style="margin-bottom: 30px !important;">STITCH IN PROGRESS</h5>
-      <p class="m-0 text-secondary">We will stitch the design of your choices or you can select designs from our product design catalog.</p>
+      <p class="m-0 text-secondary text-justify">Our experienced and talented tailors will stitch the dresses according to the size provided by customers. The size and design will be discussed over WhatsApp.</p>
     </div>
-    <div class="text-center px-xl-2">
+    <div class="col-lg-3 col-md-6 col-sm-12 text-center px-xl-2">
       <span class="fa fa-truck" style="font-size:50px ;color:#00a99e !important;margin: 11% 0"></span>
-      <h5 class="m-2 pf font-weight-bold"style="margin-bottom: 30px !important;">DELIVERY IN 7 DAYS</h5>
-      <p class="m-0 text-secondary">Your custom-tailored dress along with your sample dress will be properly packaged and it will be safely and securely delivered at your doorstep within 7-10 days</p>
+      <h5 class="m-2 pf font-weight-bold"style="margin-bottom: 30px !important;">Shipment Method</h5>
+      <p class="m-0 text-secondary text-justify">Once we receive the payment, the order is properly checked and then dispatched through an international courier company, i.e., DHL or Skynet. Standard delivery time is 8-10 days.</p>
     </div>
-    <div class="text-center px-xl-2">
+    <div class="col-lg-3 col-md-6 col-sm-12 text-center px-xl-2">
       <span class="fa fa-money" style="font-size:50px ;color:#00a99e !important;margin: 11% 0"></span>
-      <h5 class="m-2 pf font-weight-bold"style="margin-bottom: 30px !important;">CASH ON DELIVERY</h5>
-      <p class="m-0 text-secondary">Cash on delivery service, pay by cash after you receive your newly stitched cloth (Other payment methods are also available).</p>
+      <h5 class="m-2 pf font-weight-bold"style="margin-bottom: 30px !important;">Payment Method</h5>
+      <p class="m-0 text-secondary text-justify">We receive payment directly in our bank account or through Western Union. Details of which will be shared with you once the order is confirmed.</p>
     </div>
 
   </div>
@@ -164,15 +151,12 @@
     <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
       <div class="card testimonial-card">
         <div class="card-up" style="background-color: #9d789b;"></div>
-        <div class="avatar mx-auto bg-white">
-          <img src="https://png.pngtree.com/png-vector/20190329/ourmid/pngtree-vector-avatar-icon-png-image_889567.jpg"
-            class="rounded-circle img-fluid" />
-        </div>
+      
         <div class="card-body">
           <h4 class="mb-4">Maria Smantha</h4>
           <hr />
           <p class="dark-grey-text mt-4">
-            <i class="fas fa-quote-left pe-2"></i>LMy clothes were transformed with meticulous stitching, and the final results exceeded my expectations. I highly recommend their services to anyone looking for top-notch stitching and alterations.
+            <i class="fas fa-quote-left pe-2"></i>LMy clothes were transformed with Traditioniaa stitching, and the final results exceeded my expectations. I highly recommend their services to anyone looking for top-notch stitching and alterations.
           </p>
         </div>
       </div>
@@ -180,15 +164,12 @@
     <div class="col-md-4 mb-5 mb-md-0 d-flex align-items-stretch">
       <div class="card testimonial-card">
         <div class="card-up" style="background-color: #7a81a8;"></div>
-        <div class="avatar mx-auto bg-white">
-          <img src="https://png.pngtree.com/png-vector/20190329/ourmid/pngtree-vector-avatar-icon-png-image_889567.jpg"
-            class="rounded-circle img-fluid" />
-        </div>
+    
         <div class="card-body">
           <h4 class="mb-4">Lisa Cudrow</h4>
           <hr />
           <p class="dark-grey-text mt-4">
-            <i class="fas fa-quote-left pe-2"></i> The personalized attention I received from their friendly and professional staff made the entire experience enjoyable. TailorLux has earned my trust, and I'll certainly be returning for all my future stitching needs.
+            <i class="fas fa-quote-left pe-2"></i> The personalized attention I received from their friendly and professional staff made the entire experience enjoyable. Traditioniaa has earned my trust, and I'll certainly be returning for all my future stitching needs.
           </p>
         </div>
       </div>
@@ -196,15 +177,12 @@
     <div class="col-md-4 mb-0 d-flex align-items-stretch">
       <div class="card testimonial-card">
         <div class="card-up" style="background-color: #6d5b98;"></div>
-        <div class="avatar mx-auto bg-white">
-          <img src="https://png.pngtree.com/png-vector/20190329/ourmid/pngtree-vector-avatar-icon-png-image_889567.jpg"
-            class="rounded-circle img-fluid" />
-        </div>
+
         <div class="card-body">
           <h4 class="mb-4">John Smith</h4>
           <hr />
           <p class="dark-grey-text mt-4">
-            <i class="fas fa-quote-left pe-2"></i>If you're in search of a reliable and skilled stitching service, look no further than Elegant Stitches. Their commitment to excellence is truly commendable.
+            <i class="fas fa-quote-left pe-2"></i>If you're in search of a reliable and skilled stitching service, look no further than Traditioniaa Stitches. Their commitment to excellence is truly commendable.
           </p>
         </div>
       </div>

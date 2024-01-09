@@ -545,12 +545,49 @@
     .dropdown:hover>.dropdown-menu {
       color:white;
       display: block;
+      top:75%;
+      transition: all ease-in-out 0.9s;
     }
     
     .dropdown>.dropdown-toggle:active {
-      /*Without this, clicking will make it sticky*/
         pointer-events: none;
+      transition: all ease-in-out 0.9s;
+
     }
+    #intro {
+      position: relative;
+      height: 90vh;
+      overflow: hidden;
+    }
+  
+    #intro:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: url({% static 'images/heroimg.jpg' %});
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards; /* Adjust the duration and timing function as needed */
+    }
+  
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  
+    /* Your existing styles for the content inside #intro */
+    .mask {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    
   </style>
 </head>
 
@@ -587,16 +624,14 @@
               <li class="nav-item cl-effect-7">
                 <a class="navlink" href="/order">Stiching Services</a>
               </li>
-              <li class="dropdown nav-item cl-effect-7" style="
-              height: 25px;
-              margin: auto;
-          ">
+              <li class="dropdown nav-item cl-effect-7">
                 <a
                   id="dropdownMenuButton"
                   data-mdb-toggle="dropdown"
                   href="#"
+                  class="navlink"
                 >
-                  Collection
+                  COLLECTION
               </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <li><a class="dropdown-item" style=" padding:10px;
@@ -628,48 +663,7 @@
           <a class="text-reset me-3" style="cursor:pointer;" onclick="toggleSearchBox()">
             <i style="color: #bba178" class="fa-solid fa-magnifying-glass"></i>
           </a>
-          <ul class="navbar-nav">
-            <!-- Icon dropdown -->
-            <li class="nav-item dropdown">
-              <a data-mdb-dropdown-init class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                aria-expanded="false">
-                <i class="flag-pakistan flag m-0"></i>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item" href="#"><i class="flag-pakistan flag"></i>Pakistan
-                    <i class="fa fa-check text-success ms-2"></i></a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="flag-poland flag"></i>Polski</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="flag-china flag"></i>中文</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="flag-japan flag"></i>日本語</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="flag-germany flag"></i>Deutsch</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="flag-france flag"></i>Français</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="flag-spain flag"></i>Español</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="flag-russia flag"></i>Русский</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#"><i class="flag-portugal flag"></i>Português</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+      
           {% if user.is_authenticated %}
           <a class="text-white cl-effect-7" href="/logouthandle">
             Logout

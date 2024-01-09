@@ -194,10 +194,9 @@ def productdetails(request,pk):
 
 
 def search_view(request):
-    query = request.GET.get('searchinput', '')  # Using get() to handle the case where 'query' is not present
+    query = request.GET.get('searchinput', '') 
     productsq = models.Product.objects.filter(name__icontains=query)
-    print(productsq)
-    
+
     context = {'productsq': productsq, 'query': query}
     return render(request, 'ecom/products.html', context)
 
