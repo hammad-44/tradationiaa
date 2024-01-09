@@ -542,6 +542,15 @@
       box-shadow: 0 0 2px 3px #9E9E9E;
       transition: 0.3s
     }
+    .dropdown:hover>.dropdown-menu {
+      color:white;
+      display: block;
+    }
+    
+    .dropdown>.dropdown-toggle:active {
+      /*Without this, clicking will make it sticky*/
+        pointer-events: none;
+    }
   </style>
 </head>
 
@@ -577,6 +586,32 @@
               </li>
               <li class="nav-item cl-effect-7">
                 <a class="navlink" href="/order">Stiching Services</a>
+              </li>
+              <li class="dropdown nav-item cl-effect-7" style="
+              height: 25px;
+              margin: auto;
+          ">
+                <a
+                  id="dropdownMenuButton"
+                  data-mdb-toggle="dropdown"
+                  href="#"
+                >
+                  Collection
+              </a>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" style=" padding:10px;
+                    color: black;
+                " href="/products/summer-colloection">Summer Colloection</a></li>
+                  <li><a class="dropdown-item" style=" padding:10px;
+                    color: black;
+                "  href="/products/winter-collection">Winter Collection</a></li>
+                  <li><a class="dropdown-item" style=" padding:10px;
+                    color: black;
+                " href="/products/shawls">Shawls</a></li>
+                  <li><a class="dropdown-item" style=" padding:10px;
+                    color: black;
+                " href="/products/formal-wears">Formal Wears</a></li>
+                </ul>
               </li>
               <li class="nav-item cl-effect-7">
                 <a class="navlink" href="/contactus">Contact Us</a>
@@ -700,9 +735,6 @@
               <a href="/products" class="text-white">Bridal Wears</a>
             </li>
             <li class="mb-2">
-              <a href="/order" class="text-white">Stiching For Men</a>
-            </li>
-            <li class="mb-2">
               <a href="/order" class="text-white">Stiching For Women</a>
             </li>
             <li class="mb-2">
@@ -717,9 +749,29 @@
           </ul>
         </div>
         <!--Grid column-->
+        <!--Grid column-->
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <h5 class="text-uppercase mb-4 text-lg-start font-weight-bolder">Quick Link</h5>
+
+          <ul class="footerli text-left">
+            <li class="mb-2">
+              <a href="/products/summer-colloection" class="text-white">Summer Collections</a>
+            </li>
+            <li class="mb-2">
+              <a href="/products/winter-collection" class="text-white">Winter Collection</a>
+            </li>
+            <li class="mb-2">
+              <a href="/products/shawls" class="text-white">Shawls</a>
+            </li>
+            <li class="mb-2">
+              <a href="/products/formal-wears" class="text-white">Formal Wears</a>
+            </li>
+          </ul>
+        </div>
+        <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="text-uppercase mb-4 text-lg-start font-weight-bolder">Contact</h5>
 
           <ul class="list-unstyled text-left">
