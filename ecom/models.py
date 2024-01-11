@@ -2,7 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Product(models.Model):
-    name=models.CharField(max_length=40)
+    name=models.CharField(max_length=100)
+    catogory=models.CharField(max_length=80)
     product_image= models.CharField()
     price = models.PositiveIntegerField()
     sizes = models.CharField(max_length=40)

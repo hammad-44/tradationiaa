@@ -11,7 +11,7 @@
   <div class="mask text-white" style="background-color: rgba(0, 0, 0, 0.7)">
     <div class="container d-flex align-items-center justify-content-center text-center h-100">
       <div class="d-flex flex-column justify-content-center align-items-center">
-        <h1 class="mb-2 pf">List <span style="font-family: 'Sevillana', cursive;color:#08a99e">of</span> Products
+        <h1 class="my-2 pf">List <span style="font-family: 'Sevillana', cursive;color:#08a99e">of</span> Products
         </h1>
         <p style="font-size:20px ">
         </p>
@@ -27,7 +27,11 @@
 
 <section style="background-color: #eee;">
     <div class="text-center container py-5">
-      <h3 class="mt-4 mb-5"><strong>{% if query %}Search Results for {{query}} {% else %} Bridal Wears{% endif %}</strong></h3>
+      <h3 class="mt-4 mb-5"><strong>
+        {% if query %}Search Results for {{query}} 
+        {% elif catogory %}{{catogory}}
+        {% else %}Products
+        {% endif %}</strong></h3>
   
       <div class="row">
         {% if query %}

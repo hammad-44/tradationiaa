@@ -9,14 +9,8 @@ from django.core.exceptions import ValidationError
 from django.http import JsonResponse
 
 def home_view(request):
-    products=models.Product.objects.all()
-    if 'product_ids' in request.COOKIES:
-        product_ids = request.COOKIES['product_ids']
-        counter=product_ids.split('|')
-        product_count_in_cart=len(set(counter))
-    else:
-        product_count_in_cart=0
-    return render(request,'ecom/index.html',{'products':products,'product_count_in_cart':product_count_in_cart})
+    products=models.Product.objects.filter(catogory="bridal-wears")
+    return render(request,'ecom/index.html',{'products':products})
 
 def logouthandle(request):
     logout(request)
@@ -200,9 +194,15 @@ def search_view(request):
     context = {'productsq': productsq, 'query': query}
     return render(request, 'ecom/products.html', context)
 
-def product(request):
-    products = models.Product.objects.all()
-    return render(request,"ecom/products.html",{"products": products})
+def product(request,catogory=None):
+    if catogory:
+        products = models.Product.objects.filter(catogory=catogory)
+        catogory = catogory.title()
+        context = {"products":products,"catogory":catogory}
+    else:
+        products = models.Product.objects.all()
+        context = {"products":products}
+    return render(request,"ecom/products.html",context)
 
 def aboutus_view(request):
     return render(request,'ecom/aboutus.html')
